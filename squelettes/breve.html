@@ -1,0 +1,63 @@
+<B_principale><BOUCLE_principale(BREVES){id_breve}>
+<!DOCTYPE html><html lang="en">
+<INCLURE{fond=head/breve_head,id_breve,env}>
+<body>
+<!-- NAVBAR -->
+<INCLURE{fond=navbar/navbar,env}>
+<!-- TOP -->
+<div id="tops">
+<div class="container text-left">
+<div class="row">
+
+<div class="col-md-7 col-md-offset-1">
+<div class="margin_top text-right"><strong>
+<a href="#URL_SITE_SPIP" target="_top"><b class="glyphicon glyphicon-home"></b>&nbsp;<:accueil_site:></a><B_ariane>&nbsp;|&nbsp;<BOUCLE_ariane(RUBRIQUES){id_rubrique}{0,1}>[<a href="#URL_RUBRIQUE" target="_top">(#TITRE|couper{50})</a>]</BOUCLE_ariane></B_ariane><//B_ariane>
+</strong></div>
+<div class="lead text-center"><h1 class="tops">#TITRE</h1>
+[<a href="(#URL_PAGE{breves})" target="_top"><i class="glyphicon glyphicon-ok"></i>&nbsp; <:breves:></a>]</div>
+</div>
+
+<div class="col-md-4">
+<div id="socialtags" class="text-center"></div>
+<div class="text-center"><ul class="list-inline">
+<li>[<div class="small_margin">(#FORMULAIRE_JAIME)</div>]</li><li>[<div class="small_margin">(#FORMULAIRE_FAVORI)</div>]</li>
+</ul></div>
+</div>
+
+</div></div></div>
+<!-- CONTENT
+================================================== -->
+<!-- container --><div class="container">
+<!-- contenu --><div id="contenu" class="row">
+<div class="col-md-8 col-md-offset-1">
+
+[(#SET{hauteur,[(#LOGO_BREVE||extraire_attribut{height})]})]
+[(#SET{largeur,[(#LOGO_BREVE||extraire_attribut{width})]})]
+<B_logo>
+<BOUCLE_logo(BREVES){id_breve}{si #GET{largeur}|>={800}}>
+[<div class="text-center"><p align="center">(#LOGO_BREVE_NORMAL|image_reduire{600,0}|inserer_attribut{class,img-thumbnail}|inserer_attribut{style,'max-width:98%;'})</p></div>]
+</BOUCLE_logo></B_logo>
+<B_logo300>
+<BOUCLE_logo300(BREVES){id_breve}{si #GET{largeur}|<{800}}{si #GET{largeur}|>={600}}>
+[<div class="margin text-center">(#LOGO_BREVE_NORMAL|image_reduire{600,400}|inserer_attribut{class,shadow}|inserer_attribut{style,'max-width:98%;'})</div>]
+</BOUCLE_logo300>
+</B_logo300>
+[(#LOGO_BREVE_NORMAL|image_reduire{400,200}|inserer_attribut{class,img-polaroid margin}|inserer_attribut{style,'max-width:30%;float:right;height:auto;'})]
+<//B_logo300>
+<//B_logo>
+
+[<div class="clearfix lead justify">(#TEXTE)</div>]
+[<div><a href="#URL_SITE" target="_blank" class="btn btn-sm btn-default"><i class="glyphicon glyphicon-link"></i>&nbsp;(#NOM_SITE|couper{60})</a></div>]
+[<div class="margin text-left muted">(#NOTES)</div>]
+
+</div>
+<!-- A_SIDE --><div class="col-md-3">
+<INCLURE{fond=aside/aside,env}>
+</div><!-- /_A_SIDE -->
+</div><!-- /.contenu -->
+</div><!-- /.container -->
+<!-- FOOTER --><INCLURE{fond=footer,env}>
+</body></html>
+</BOUCLE_principale>
+</B_principale>
+<//B_principale>

@@ -1,0 +1,6 @@
+<div class="border_bottom"><b class="small_margin glyphicon glyphicon-thumbs-up"></b><span class="font">&nbsp;<:lespluslus:></span></div>
+<div class="margin_top text-left">
+<BOUCLE_pop(ARTICLES){id_rubrique!=-1}{par popularite}{inverse}{0,8}>
+<p class="small_margin">[<a href="#URL_ARTICLE" target="_top" title="#TITRE_PARENT"><i class="glyphicon glyphicon-hand-right"></i>&nbsp;(#TITRE|couper{80})</a>]</p>
+</BOUCLE_pop>
+</div>

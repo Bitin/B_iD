@@ -1,0 +1,23 @@
+<B_secteurs>
+<h3><:rubriques:></h3>
+[(#ANCRE_PAGINATION)]
+[<p class="pagination ajax btn btn-default">(#PAGINATION)</p>]
+<BOUCLE_secteurs(RUBRIQUES){racine}{par num titre}{pagination 6}>
+<div class="margin">
+<strong><a href="#URL_RUBRIQUE"><i class="glyphicon glyphicon-folder-close"></i>&nbsp; #TITRE</a></strong> <small>[<a href="#URL_PAGE{backend, id_rubrique=#ID_RUBRIQUE}" target="_blank" rel="nofollow">RSS</a>]</small>
+
+<B_rubriques>
+<ul class="list-unstyled">
+	<BOUCLE_rubriques(RUBRIQUES) {id_parent} {par num titre}{!par date}>
+	<li>
+	<a href="#URL_RUBRIQUE"><i class="glyphicon glyphicon-hand-right"></i>&nbsp; #TITRE</a> <small>[<a href="#URL_PAGE{backend, id_rubrique=#ID_RUBRIQUE}" target="_blank" rel="nofollow">RSS</a>]</small>
+	<BOUCLE_sous_rubriques(BOUCLE_rubriques)></BOUCLE_sous_rubriques>
+	</li>
+	</BOUCLE_rubriques>
+</ul>
+</B_rubriques>
+</div>
+</BOUCLE_secteurs>
+[<p class="pagination ajax btn btn-default">(#PAGINATION)</p>]
+</B_secteurs>
+<//B_secteurs>

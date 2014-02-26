@@ -1,0 +1,80 @@
+<BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
+<div id="contenu" class="row">
+<!-- START THE FEATURETTES --><div class="col-md-8 col-md-offset-1">
+[<div class="padding">
+[(#LOGO_RUBRIQUE|image_reduire{100,100}|inserer_attribut{class,pull-left margin}|inserer_attribut{style,'max-with:25%;'})]
+<div class="lead text-right color">(#DESCRIPTIF)</div>
+</div>]<div class="clearfix"></div>
+
+
+<hr class="featurette-divider">
+<B_select>
+[(#ANCRE_PAGINATION)]
+<BOUCLE_select(ARTICLES pb_selection){spip_pb_selection.id_rubrique}{par ordre}{pagination 1}{doublons rubrique}>
+<INCLURE{fond=parts/item_article}{id_article}{env}{ajax}>
+</BOUCLE_select>
+[<div class="text-left"><p class="text-center btn btn-default btn-xs pagination ajax">(#PAGINATION)</p></div>]
+</B_select>
+<//B_select>
+
+<div class="clearfix"></div>
+<div class="row">
+
+<div class="col-md-4">
+<BOUCLE_ag(ARTICLES){branche}{1/3}{!par date}{logo}>
+[(#INCLURE{fond=item/item_galerie, id_article, env})]
+</BOUCLE_ag>
+</div>
+
+<div class="col-md-4">
+<BOUCLE_ag2(ARTICLES){branche}{2/3}{!par date}{logo}>
+[(#INCLURE{fond=item/item_galerie, id_article, env})]
+</BOUCLE_ag2>
+</div>
+
+<div class="col-md-4">
+<BOUCLE_ag3(ARTICLES){branche}{3/3}{!par date}{logo}>
+[(#INCLURE{fond=item/item_galerie, id_article, env})]
+</BOUCLE_ag3>
+</div>
+
+
+</div>
+<div class="clearfix"></div>
+
+
+<B_info>
+<!-- Sites -->
+<div class="small_margin margin_top"><span class="border_bottom font"><i class="glyphicon glyphicon-fire"></i> &nbsp;<:sur_web:></span></div>
+<div class="margin">
+[(#ANCRE_PAGINATION)]
+<ul class="list-unstyled">
+<BOUCLE_info(SYNDIC_ARTICLES){branche}{pagination 2}{0,10}{!par date}>
+<li><INCLURE{fond=item/item_syndic_article}{id_syndic_article}{env}></li>
+</BOUCLE_info>
+</ul>
+[<div class="clearfix"></div>
+<p align="center" class="btn btn-sm btn-default pagination ajax">(#PAGINATION)</p>]
+</div>
+</B_info><//B_info>
+
+<B_sites>
+<!-- Sites -->
+<div class="small_margin margin_top"><span class="border_bottom font"><i class="glyphicon glyphicon-globe"></i> &nbsp;<:sites_web:></span></div>
+<div class="margin">
+[(#ANCRE_PAGINATION)]
+<BOUCLE_sites(SITES){branche}{pagination 5}{!titre_mot=rezosocio}>
+[<a href="[(#ID_SYNDIC|generer_url_entite{site})]" target="_top" class="btn btn-sm btn-default small_margin"><i class="glyphicon glyphicon-link"></i>&nbsp;(#NOM_SITE|couper{60})</a>]
+</BOUCLE_sites>
+[<div class="clearfix"></div>
+<p align="center" class="btn btn-small pagination ajax">(#PAGINATION)</p>]
+</div>
+</B_sites><//B_sites>
+
+
+</div><!-- /END THE FEATURETTES -->
+<div class="col-md-3">
+<INCLURE{fond=aside/rubrique_aside}{id_rubrique}{env}>
+</div>
+</div>
+</BOUCLE_rubrique>

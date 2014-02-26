@@ -1,0 +1,10 @@
+<div class="formulaire_spip formulaire_recherche[ (#ENV{class})] form-search" id="formulaire_recherche" >
+<form action="[(#ENV{action})]" method="get" class="form-inline btn degrade_inverse"><div class="btn-group">
+[(#ENV{action}|form_hidden)]
+[<input type="hidden" name="lang" value="(#ENV{lang})" />]
+<label for="#ENV{_id_champ}" class="invisible hidden" style="font-size:0px;display:none;visibility:hidden;"><:info_rechercher_02:></label>
+<input[ (#HTML5|?{type="search" class="search text input-small search-query",type="text"})] size="20" name="recherche" id="#ENV{_id_champ}"[ value="(#ENV{recherche})"] accesskey="4" autocapitalize="off" autocorrect="off" placeholder="<:info_rechercher:>"/>
+<input type="submit"  value="ok" title="<:info_rechercher:>" />
+</div></form>
+</div>
+

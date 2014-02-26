@@ -1,0 +1,97 @@
+#FILTRE{mini_html}
+<!DOCTYPE html><html lang="en">
+<head>
+<!-- REGLES -->
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<INCLURE{fond=icon}>
+<!-- INFOS -->
+<title>[(#RECHERCHE|?{#RECHERCHE,<:info_rechercher:>})] [ @ (#NOM_SITE_SPIP|textebrut)]</title>
+<META NAME="generator" CONTENT="SPIP[ (#SPIP_VERSION)]" />
+<META NAME="description" content="[<:info_rechercher:> @ (#NOM_SITE_SPIP|textebrut)]">
+<META NAME="author" content="[(#NOM_SITE_SPIP|textebrut)]">
+<META NAME="copyright" CONTENT="©">
+<META NAME="identifier-url" CONTENT="[(#URL_PAGE{recherche}|url_absolue)]">
+<META NAME="organization" CONTENT="[(#NOM_SITE_SPIP|textebrut)]">
+<META NAME="Rating" CONTENT="general">
+<META http-equiv="Content-Language" CONTENT="fr">
+<META NAME="expires" CONTENT="never">
+<META NAME="Distribution" CONTENT="Global">
+<META NAME="Audience" CONTENT="general">
+<!-- RSS -->
+[<link rel="alternate" type="application/rss+xml" title="RSS" href="(#URL_PAGE{backend})" />]
+[<link rel="alternate" type="application/rss+xml" title="RSS <:breves:>" href="(#URL_PAGE{backend-breves})" />]
+[<link rel="alternate" type="application/rss+xml" title="RSS <:agenda:>" href="(#URL_PAGE{rss_agenda})" />]
+<!-- Bootstrap core CSS -->
+#INSERT_HEAD_CSS
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+<!-- Custom styles -->
+<link href="#CHEMIN{css/carousel.css}" rel="stylesheet">
+<INCLURE{fond=css/style}>
+<BOUCLE_couleur(RUBRIQUES){titre_mot=couleur}{par hasard}{0,1}>
+<INCLURE{fond=css/couleur,id_rubrique=#ID_RUBRIQUE,env,ajax}>
+</BOUCLE_couleur>
+#INSERT_HEAD
+<!-- SCRIPTS -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<INCLURE{fond=js/javascript}>
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+<!-- NAVBAR -->
+<INCLURE{fond=navbar/navbar,env}>
+<!-- TOP -->
+<div id="tops">
+<div class="container text-left">
+<div class="row">
+
+<div class="col-md-7 col-md-offset-1">
+<div class="lead text-center"><h1><i class="glyphicon glyphicon-search"></i>&nbsp; [(#RECHERCHE|?{#RECHERCHE,<:info_rechercher:>})]</h1></div>
+</div>
+
+<div class="col-md-4">
+<div id="socialtags" class="text-center"></div>
+<div class="text-center"><ul class="list-inline">
+<li>[<div class="small_margin">(#FORMULAIRE_JAIME)</div>]</li><li>[<div class="small_margin">(#FORMULAIRE_FAVORI)</div>]</li>
+</ul></div>
+</div>
+
+</div></div></div>
+<!-- CONTENT
+================================================== -->
+<!-- container --><div class="container">
+<!-- contenu --><div id="contenu" class="row">
+<div class="col-md-8 col-md-offset-1">
+<div class="text-center color">
+[(#RECHERCHE|?{<:resultats_recherche:>&nbsp;"<strong>#RECHERCHE</strong>"<hr>,<strong><:info_rechercher:></strong><hr>})]
+[<div class="text-center">(#FORMULAIRE_RECHERCHE)</div>]
+</div>
+
+<!--/ixquick--><div class="overflow margin">
+<div><p><small><:ixquick:>:&nbsp;<strong><a href="http://ixquick.com/fra/" rel="nofollow" target="_blank">Ixquick</a>.</strong></small></p></div>
+<form method=POST accept-charset="UTF-8" action='http://ixquick.com/do/search' name="searchsys" id="searchsys" onSubmit="javascript:document.searchsys.query.value=document.searchsys.keyword.value;;for(i=0;i<this.cat.length;i++){if(this.cat[i].checked){c=this.cat[i].value;}}if (c!='web') {this.host.value=document.domain;} else {this.host.value=''};" style="background:none;padding:2px 0 0 10px;height:55px;"><!--If you need, apply background color in form style inline--><table height="46" border="0" cellpadding="0" cellspacing="0"><tr><td style="padding:0 4px 0 0"><a href='http://ixquick.com' style="position:relative;top:2px;width:85px;height:32px;display:inline-block;background:none;background-color:none;);filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=http://ixquick.com/graphics/logo-search2.jpg,sizingMethod='scale')"><!--apply full url path for background--><img src=http://ixquick.com/graphics/spacer.gif alt="Ixquick"  width="85" height="32" border="0" /></a></td><td style="height:46px;padding: 0 0 0 2px;*padding: 0 0 0 0px;" align="right"><input name=query type=hidden size=32><input class="width_update_class" name=keyword type=text style="width : 260px; _height : 23px; font : 14px verdana, arial, sans-serif; padding : 0px 6px; padding-top:1px !important; padding-bottom:1px !important;outline: none; background:white;"><input name=host type=hidden value="" ><input type=hidden name=frm value=sb><input type=hidden name=cmd value="process_search"><input name=language type=hidden value=francais ></td><td style="padding:0px 4px 0px 6px;"><input type="submit" value="Recherche" id="submit" style="position:relative;top:-1px"></td></tr><tr valign="top"><td></td><td colspan="2" style="padding-top:0px;"><table border="0" cellspacing="0" cellpadding="0" class="td_ie" style="position:relative;margin-top:-8px;*margin-top:-12px; left:10px;"><tr><td style="font-family:Arial, Helvetica, sans-serif; font-size:11px;color:#000000;padding-right:2px;" class="thisSiteName">Ce site</td><td align="center" ><input type="radio" name="cat" value="thissite" id="check2" style="padding:0; margin:0" checked="checked" onClick="clicked='site'"></td><td style="font-family:Arial, Helvetica, sans-serif; font-size:11px;color:#000000; padding-top:1px; padding-left:11px; padding-right:2px;">Web</td><td align="center"><input type="radio" name="cat" value="web"  style="padding:0; margin:0" onClick="clicked='web'"></td></tr></table></td></tr></table>
+ <!--LBS--><input type=hidden name=linkback_url value="[(#URL_PAGE{recherche}|url_absolue)]"><input type=hidden name=linkback_sitename value="[(#NOM_SITE_SPIP)]"><!--LBE--> </form>
+<hr></div><!--/ixquick-->
+
+<div class="margin">
+<!-- #### recherche articles --><INCLURE{fond=item/recherche_article,recherche,env,ajax}><!-- / articles -->
+<!-- #### recherche rubriques --><INCLURE{fond=item/recherche_rubrique,recherche,env,ajax}><!-- / rubriques -->
+<!-- #### recherche sites --><INCLURE{fond=item/recherche_site,recherche,env,ajax}><!-- / sites -->
+<!-- #### recherche mots --><INCLURE{fond=item/recherche_mot,recherche,env,ajax}><!-- / mots -->
+<!-- #### recherche breves --><INCLURE{fond=item/recherche_breve,recherche,env,ajax}><!-- / sites -->
+<!-- #### recherche forum --><INCLURE{fond=item/recherche_forum,recherche,env,ajax}><!-- / forums -->
+</div>
+</div>
+<!-- A_SIDE --><div class="col-md-3">
+<INCLURE{fond=aside/aside,env}>
+</div><!-- /_A_SIDE -->
+</div><!-- /.contenu -->
+</div><!-- /.container -->
+<!-- FOOTER --><INCLURE{fond=footer,env}>
+</body></html>

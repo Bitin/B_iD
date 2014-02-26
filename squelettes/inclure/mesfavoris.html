@@ -1,0 +1,18 @@
+#FILTRE{mini_html}
+<B_selections>
+	<div id="selection" class="liste favoris[ (#ENV{class})]">
+		<h2 class="color font">[(#ENV{titre,<:mesfavoris:mes_favoris:>})]</h2>
+		[(#ANCRE_PAGINATION)]
+		<ul class="list-unstyled">
+			<BOUCLE_selections(FAVORIS){0,6}{!par maj}{id_auteur}{pagination #ENV{pagination,1}}>
+				<li class="item no_list">
+					<a href="#INFO_URL{#OBJET,#ID_OBJET}">#INFO_TITRE{#OBJET,#ID_OBJET}</a>
+					[(#ENV{bouton_suppression,oui}|=={non}|non)
+					[(#AUTORISER{modifier,favori,#ID_FAVORI}|oui)[(#BOUTON_ACTION{<:mesfavoris:remove:>,#URL_ACTION_AUTEUR{supprimer_favori,#ID_FAVORI,#SELF},ajax})]]]
+					[(#ENV{bouton_ajout,non}|=={oui}|oui)[(#FORMULAIRE_FAVORI{#OBJET,#ID_OBJET})]]
+				</li>
+			</BOUCLE_selections>
+		</ul>
+		[<p class="btn btn-xs btn-default pagination ajax">(#PAGINATION{#ENV{type_pagination,''}})</p>]
+	</div>
+</B_selections>

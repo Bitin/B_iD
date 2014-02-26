@@ -1,0 +1,31 @@
+<div id="contenu" class="row">
+
+<div class="col-md-8 col-md-offset-1">
+<hr class="featurette-divider">
+
+<div class="col-md-12 content fond_clair">
+<INCLURE{fond=carousel/une_carousel,env,ajax}>
+</div>
+
+
+<!-- START THE FEATURETTES -->
+<div class="col-md-12">
+<hr class="featurette-divider">
+<BOUCLE_rubrique_presentation(RUBRIQUES){titre_mot=focus}{0,1}>
+<B_presentation_select>
+<BOUCLE_presentation_select(ARTICLES pb_selection){spip_pb_selection.id_rubrique}{par ordre}{doublons select}>
+<INCLURE{fond=parts/item_article}{id_article}{env}{ajax}>
+</BOUCLE_presentation_select>
+<BOUCLE_sommaire_presentation(ARTICLES){branche}{0,3}{!par date}{doublons select}>
+<INCLURE{fond=parts/item_article}{id_article}{env}{ajax}>
+</BOUCLE_sommaire_presentation>
+</B_presentation_select>
+<//B_presentation_select>
+</BOUCLE_rubrique_presentation>
+</div><!-- /END THE FEATURETTES -->
+
+</div>
+<div class="col-md-3">
+<INCLURE{fond=aside/sommaire_aside}{env}>
+</div>
+</div>

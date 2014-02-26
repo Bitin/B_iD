@@ -1,0 +1,9 @@
+<B_sites>
+<!-- Sites -->
+[(#ANCRE_PAGINATION)]
+<BOUCLE_sites(SITES){id_mot ?}{id_rubrique ?}{id_auteur ?}{branche ?}{pagination 10}{!titre_mot=rezosocio}>
+[<a href="[(#ID_SYNDIC|generer_url_entite{site})]" target="_top" class="btn btn-sm btn-default small_margin"><i class="glyphicon glyphicon-link"></i>&nbsp;(#NOM_SITE|couper{60})</a>]
+</BOUCLE_sites>
+[<div class="clearfix"></div>
+<p align="center" class="btn btn-small pagination ajax">(#PAGINATION)</p>]
+</B_sites><//B_sites>

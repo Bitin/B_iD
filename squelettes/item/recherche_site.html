@@ -1,0 +1,14 @@
+#FILTRE{mini_html}
+[(#REM) Sites web trouves ]
+<B_sites>
+<div class="margin">
+#ANCRE_PAGINATION
+<div class="border_bottom"><span class="font"><b class="glyphicon glyphicon-search"></b>&nbsp; <:sites_web:></span>&nbsp;<span class="color">[(#GRAND_TOTAL)]</span></div>
+<ul class="list-unstyled">
+<BOUCLE_sites(SITES) {recherche} {!par points} {pagination 5}>
+<li class="small_margin"><a href="[(#ID_SYNDIC|generer_url_entite{site,'','',#CONNECT})]"><i class="glyphicon glyphicon-link"></i>&nbsp; #NOM_SITE</a></li>
+</BOUCLE_sites>
+</ul>
+[<p align="left" class="pagination btn btn-sm btn-default ajax">(#PAGINATION)</p>]
+</div>
+</B_sites>

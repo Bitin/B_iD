@@ -1,0 +1,50 @@
+<BOUCLE_tops(RUBRIQUES){id_rubrique}>
+<div id="tops">
+<div class="container text-left">
+<div class="row">
+
+<div class="col-md-7 col-md-offset-1">
+<div class="margin_top text-right"><strong><a href="#URL_SITE_SPIP" target="_top"><b class="glyphicon glyphicon-home"></b>&nbsp;<:accueil_site:></a><B_ariane>&nbsp;|&nbsp;<BOUCLE_ariane(HIERARCHIE){id_rubrique}{" | "}{0,3}>[<a href="#URL_RUBRIQUE" target="_top">(#TITRE|couper{50})</a>]</BOUCLE_ariane></B_ariane><//B_ariane></strong></div>
+<div class="lead text-center"><h1 class="tops" data-toggle="collapse" data-parent="#tops" href="#infoRubrique">#TITRE<span class="caret"></span></h1></div>
+<div id="infoRubrique" class="accordion-body collapse">
+<div class="margin">
+<!-- bouton Rub -->
+<div class="btn-group">
+  <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><:navigation:></button>
+  <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown">
+    <span class="caret"></span><span class="sr-only">Toggle Dropdown</span></button>
+  <ul class="dropdown-menu" role="menu">
+  <li><a href="[(#URL_SITE_SPIP)]"><b class="glyphicon glyphicon-home"></b>&nbsp;<:accueil_site:></a></li>
+  <li class="divider"></li>
+  <BOUCLE_par(RUBRIQUES){id_enfant}>
+    <BOUCLE_par_rec(BOUCLE_par)></BOUCLE_par_rec>
+    <li><a href="#URL_RUBRIQUE">[<b class="glyphicon glyphicon-hand-up"></b>&nbsp;(#TITRE|couper{80})]</a></li>
+    </BOUCLE_par>
+    <li>[<a href="#URL_RUBRIQUE"><b class="glyphicon glyphicon-ok-circle"></b>&nbsp;<strong>(#TITRE|couper{80})</strong></a>]</li>
+    <BOUCLE_enf(RUBRIQUES){id_parent}{par num titre}><li><a href="#URL_RUBRIQUE">[<b class="glyphicon glyphicon-hand-down"></b>&nbsp;(#TITRE|couper{80})]</a></li></BOUCLE_enf>
+  </ul>
+</div>
+<!-- /_bouton Rub -->
+<div class="clearfix"></div>[(#INCLURE{fond=item/combien_articles, branche, env})][(#INCLURE{fond=item/combien_sites, branche, env})]
+<hr>
+[<div class="text-left small_margin small_padding">(#TEXTE)</div><hr>]
+<INCLURE{fond=paginations/big/pagination_mots, id_rubrique, env, ajax}>
+</div>
+
+<div class="border_bottom small_padding text-right">
+<button class="btn btn-sm btn-default" data-toggle="collapse" data-parent="#tops" href="#infoRubrique" aria-hidden="true" rel="nofollow"><i class="glyphicon glyphicon-remove-sign"></i>&nbsp;<:fermer:></button>
+</div>
+
+</div><!-- /_infoRubrique -->
+
+</div>
+
+<div class="col-md-4">
+<div id="socialtags" class="text-center"></div>
+<div class="text-center"><ul class="list-inline">
+<li>[<div class="small_margin">(#FORMULAIRE_JAIME)</div>]</li><li>[<div class="small_margin">(#FORMULAIRE_FAVORI)</div>]</li>
+</ul></div>
+</div>
+
+</div></div></div>
+</BOUCLE_tops>

@@ -1,0 +1,43 @@
+#FILTRE{mini_html}
+<BOUCLE_principale(ARTICLES){id_article}>
+<a href="#URL_ARTICLE" target="_top"><div class="text-center"><h4>#TITRE</h4></div></a>
+<!-- Carousel -  carousel_portail.html -->
+<div id="galerie" class="une slide text-center">
+
+  <!-- Carousel items -->
+  <div class="carousel-inner text-center">
+
+<BOUCLE_documents_portfolio_1(DOCUMENTS) {id_article} {mode=document}{extension IN png,jpg,gif} {par num titre, date}{0,1}{doublons}>
+    <div class="active item overflow" data-pause="hover">
+    <INCLURE{fond=parts/item_galerie}{id_document}{env}>
+    </div>
+</BOUCLE_documents_portfolio_1>
+
+<BOUCLE_documents_portfolio_suite(DOCUMENTS) {id_article} {mode=document}{extension IN png,jpg,gif} {par num titre, date}{0,6}{doublons}>
+    <div class="item overflow" data-pause="hover">
+    <INCLURE{fond=parts/item_galerie}{id_document}{env}>
+    </div>
+</BOUCLE_documents_portfolio_suite>
+
+
+<B_docs_portfolio>
+<BOUCLE_docs_portfolio(DOCUMENTS){id_article}{mode=document}{extension IN png,jpg,gif}>
+</BOUCLE_docs_portfolio>
+
+
+<!-- Indicators -->
+  <ol class="carousel-indicators text-center">
+  <B_indicator><BOUCLE_indicator(DOCUMENTS) {id_article} {mode=document}{extension IN png,jpg,gif} {par num titre, date}{0,1}{doublons indicator}>
+    <li data-pause="hover" data-target="#galerie" data-slide-to="0" class="active"></li>
+  </BOUCLE_indicator></B_indicator><//B_indicator>
+  <B_indicator_suite><BOUCLE_indicator_suite(DOCUMENTS) {id_article} {mode=document}{extension IN png,jpg,gif} {par num titre, date}{0,6}{doublons indicator}>
+    <li data-pause="hover" data-target="#galerie" data-slide-to="#COMPTEUR_BOUCLE"></li>
+   </BOUCLE_indicator_suite></B_indicator_suite>
+   <//B_indicator_suite>
+  </ol>
+<!-_/indicators_presentation -->
+<!-- /_Indicators -->
+
+</B_docs_portfolio><//B_docs_portfolio>
+</div></div>
+</BOUCLE_principale>

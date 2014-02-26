@@ -1,0 +1,104 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<!-- REGLES -->
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<INCLURE{fond=icon}>
+<!-- INFOS -->
+<title><:connexion:> [ @ (#NOM_SITE_SPIP|textebrut)]</title>
+<META NAME="generator" CONTENT="SPIP[ (#SPIP_VERSION)]" />
+<META NAME="description" content="[<:connexion:> @ (#NOM_SITE_SPIP|textebrut)]">
+<META NAME="author" content="[(#NOM_SITE_SPIP|textebrut)]">
+<META NAME="copyright" CONTENT="©">
+<META NAME="identifier-url" CONTENT="[(#URL_PAGE{identification_login}|url_absolue)]">
+<META NAME="organization" CONTENT="[(#NOM_SITE_SPIP|textebrut)]">
+<META NAME="Rating" CONTENT="general">
+<META http-equiv="Content-Language" CONTENT="fr">
+<META NAME="expires" CONTENT="never">
+<META NAME="Distribution" CONTENT="Global">
+<META NAME="Audience" CONTENT="general">
+<!-- RSS -->
+[<link rel="alternate" type="application/rss+xml" title="RSS" href="(#URL_PAGE{backend})" />]
+[<link rel="alternate" type="application/rss+xml" title="RSS <:breves:>" href="(#URL_PAGE{backend-breves})" />]
+[<link rel="alternate" type="application/rss+xml" title="RSS <:agenda:>" href="(#URL_PAGE{rss_agenda})" />]
+<!-- Bootstrap core CSS -->
+#INSERT_HEAD_CSS
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+<!-- Custom styles -->
+<link href="#CHEMIN{css/carousel.css}" rel="stylesheet">
+<INCLURE{fond=css/style}>
+<BOUCLE_couleur(RUBRIQUES){titre_mot=couleur}{par hasard}{0,1}>
+<INCLURE{fond=css/couleur,id_rubrique=#ID_RUBRIQUE,env,ajax}>
+</BOUCLE_couleur>
+#INSERT_HEAD
+<!-- SCRIPTS -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<INCLURE{fond=js/javascript}>
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+<!-- NAVBAR -->
+<INCLURE{fond=navbar/navbar,env}>
+<!-- TOP -->
+<div id="tops">
+<div class="container text-left">
+<div class="row">
+<div class="col-md-12">
+<div class="lead text-center"><h1><i class="glyphicon glyphicon-log-in"></i>&nbsp; <:connexion:></h1></div>
+</div>
+</div></div></div>
+<!-- CONTENT
+================================================== -->
+<!-- container --><div class="container">
+<!-- contenu --><div id="contenu" class="row">
+[(#SESSION{id_auteur}|oui)
+<div id="menu" class="col-md-12">
+
+<!-- apres_inscription --><p align="center"><strong><a data-toggle="collapse" data-parent="#menu" href="#infoApres"><i class="glyphicon glyphicon-info-sign"></i> &nbsp;<:une_fois_inscrit:></a></strong></p>
+<div id="infoApres" class="accordion-body collapse">
+<div class="margin small_padding text-left"><INCLURE{fond=item/apres_inscription}></div>
+</div><!-- / apres_inscription -->
+
+
+<p align="center">[<strong><:bonjour:>&nbsp;(#SESSION{nom})</strong>]</p>
+<p align="center"><a href="#URL_SITE_SPIP" target="_top"><b class="glyphicon glyphicon-home"></b>&nbsp;<:accueil_site:></a></p>
+<p align="center"><a href="#URL_PAGE{mapage}" target="_top"><i class="glyphicon glyphicon-user"></i>&nbsp;<:mon_my:></a></p>
+<p align="center"><hr></p>
+<p align="center">[<u><:derniere_connexion:></u>:<br />(#SESSION{maj}|affdate)][ - (#SESSION{maj}|heures)&nbsp;h] [(#SESSION{maj}|minutes)&nbsp;mn]</p>
+<p align="center"><a href="[(#URL_LOGOUT)]" target="_self" rel="nofollow"><i class="glyphicon glyphicon-log-out"></i>&nbsp;<:deconnexion:></a></p>
+<p align="center"><a href="#URL_PAGE{spip_pass}" class="btn btn-link"><b class="glyphicon glyphicon-exclamation-sign"></b>&nbsp;<:changer_pass:></a></p>
+<p align="center"><a href="#URL_SITE_SPIP/ecrire" target="_top"><i class="glyphicon glyphicon-pencil"></i>&nbsp;Admin</a></p>
+</div>]
+
+[(#SESSION{id_auteur}|non)
+
+<div id="menu" class="col-md-12">
+
+<!-- apres_inscription --><p align="center"><strong><a data-toggle="collapse" data-parent="#menu" href="#infoApres"><i class="glyphicon glyphicon-info-sign"></i> &nbsp;<:une_fois_inscrit:></a></strong></p>
+<div id="infoApres" class="accordion-body collapse">
+<div class="margin small_padding text-left"><INCLURE{fond=item/apres_inscription}></div>
+</div><!-- / apres_inscription -->
+
+</div>
+
+<div class="clearfix"><hr></div>
+
+<div class="col-md-6">
+<div class="margin padding border shadow">
+<h3><:pas_inscrit:></h3>[(#FORMULAIRE_INSCRIPTION)]</div>
+</div>
+<div class="col-md-6">
+<div class="margin padding border shadow"><h3><:deja_inscrit:></h3>[(#LOGIN_PUBLIC{#SELF})]</div>
+</div>
+]
+
+</div><!-- /.contenu -->
+</div><!-- /.container -->
+
+</body></html>

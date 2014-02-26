@@ -1,0 +1,6 @@
+<div class="border_bottom"><b class="small_margin glyphicon glyphicon-refresh"></b><span class="font">&nbsp;<:derniers_articles:></span></div>
+<div align="margin_top text-left">
+<BOUCLE_derniers_articles(ARTICLES){id_rubrique!=-1}{!par date}{0,5}>
+<p class="small_margin">[<a href="#URL_ARTICLE" target="_top" title="#TITRE_PARENT"><i class="glyphicon glyphicon-hand-right"></i>&nbsp;(#TITRE|couper{80})</a>]</p>
+</BOUCLE_derniers_articles>
+</div>

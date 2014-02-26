@@ -1,0 +1,36 @@
+<B_principale><BOUCLE_principale(RUBRIQUES){id_rubrique}>
+<!DOCTYPE html><html lang="en">
+<INCLURE{fond=head/rubrique_head,id_rubrique,env}>
+<body>
+<!-- NAVBAR -->
+<INCLURE{fond=navbar/navbar,env}>
+<INCLURE{fond=top/rubrique_top,id_rubrique,env}>
+<!-- CONTENT
+================================================== -->
+<!-- container --><div class="container">
+<!-- CONTENT -->
+
+<B_test_potail>
+<BOUCLE_test_potail(RUBRIQUES){id_rubrique}{titre_mot=portail}{0,1}>
+<INCLURE{fond=content/portail_content,id_rubrique,env,ajax}>
+</BOUCLE_test_potail>
+</B_test_potail>
+<B_test_galerie>
+<BOUCLE_test_galerie(RUBRIQUES){id_rubrique}{titre_mot=Galerie}{0,1}>
+<INCLURE{fond=content/galerie_content,id_rubrique,env,ajax}>
+</BOUCLE_test_galerie>
+</B_test_galerie>
+<INCLURE{fond=content/rubrique_content,id_rubrique,env,ajax}>
+<//B_test_galerie>
+<//B_test_potail>
+
+
+<!-- /_CONTENT -->
+</div><!-- /.container -->
+<!-- FOOTER --><INCLURE{fond=footer,env}>
+</body></html>
+</BOUCLE_principale>
+</B_principale>
+[(#ID_RUBRIQUE|AccesRestreint_rubrique_restreinte|?{' ',''})
+<INCLURE{fond=inc/acces_restreint,lang}>]
+<//B_principale>

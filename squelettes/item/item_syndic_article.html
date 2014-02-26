@@ -1,0 +1,7 @@
+<BOUCLE_syndic_article(SYNDIC_ARTICLES){id_syndic_article}>
+[<h4><a href="#URL_ARTICLE" target="_blank"><i class="glyphicon glyphicon-share-alt"></i>&nbsp;(#TITRE|couper{120})</a></h4>]
+<blockquote>
+<p>[(#DESCRIPTIF|couper{200})]</p>
+<small>[(#DATE|jour)/][(#DATE|mois)][/(#DATE|annee)&nbsp;] <i class="glyphicon glyphicon-hand-right"></i>&nbsp;<cite title="[(#NOM_SITE|couper{100})]"><a href="[(#ID_SYNDIC|generer_url_entite{site})]">[(#NOM_SITE|couper{60})]</a></cite></small>
+</blockquote>
+</BOUCLE_syndic_article>

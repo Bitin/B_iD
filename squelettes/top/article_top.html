@@ -1,0 +1,49 @@
+<BOUCLE_tops(ARTICLES){id_article}>
+<div id="tops">
+<div class="container text-left">
+<div class="row">
+
+<div class="col-md-7 col-md-offset-1">
+<div class="text-right margin_top"><strong>
+<a href="#URL_SITE_SPIP" target="_top"><b class="glyphicon glyphicon-home"></b>&nbsp;<:accueil_site:></a><B_ariane>&nbsp;|&nbsp;<BOUCLE_ariane(HIERARCHIE){id_article}{" | "}{0,3}>[<a href="#URL_RUBRIQUE" target="_top">(#TITRE|couper{50})</a>]</BOUCLE_ariane></B_ariane><//B_ariane>
+</strong></div>
+<div class="lead text-center"><h1 class="tops" data-toggle="collapse" data-parent="#tops color" href="#infoArticle">#TITRE<span class="caret"></span></h1></div>
+
+<div id="infoArticle" class="accordion-body collapse">
+
+<div class="margin">
+<strong class="color small_margin"><:info_titre:>&nbsp;#TITRE</strong><br />
+<div class="small_margin">[<strong><:info_surtitre:></strong>&nbsp;(#SURTITRE)<br />]
+[<strong><:info_sous_titre:></strong>&nbsp;(#SOUSTITRE)<br />]
+<strong><:texte_date_publication_objet:></strong> [(#DATE|jour)][/(#DATE|mois)][/(#DATE|annee)]<br />
+[<strong><:info_auteurs:></strong> :&nbsp;<i class="icon-user"></i>&nbsp;(#LESAUTEURS)<br />]
+[<strong><:titre_langue_article:></strong>:&nbsp;(#LANG)<br />]
+[<strong><:titre_cadre_interieur_rubrique:></strong>:&nbsp;<a href="#URL_RUBRIQUE" target="_top">(#TITRE_PARENT)</a><br />]
+<B_indirect><strong><:rubriques_associees:></strong> : <BOUCLE_indirect(RUBRIQUES){" | "}{parents_indirects}><a href="#URL_RUBRIQUE" target="_top">[(#TITRE)]</a></BOUCLE_indirect><br /></B_indirect><//B_indirect>
+[<strong>URL</strong>:&nbsp;<a href="[(#URL_ARTICLE|url_absolue)]" class="overflow">(#URL_ARTICLE|url_absolue|couper{80})</a>]
+[<br /><strong><:info_site_reference_2:></strong>:&nbsp;<a href="#URL_SITE" target="_blank"><b class="glyphicon glyphicon-globe"></b>&nbsp;(#NOM_SITE|couper{40})</a>]
+[<br />(#MODELE{article_traductions})<br />]</div>
+[<div class="small_margin">(#INCLURE{fond=item/popularite, id_article, env})</div>]
+</div>
+
+<div class="margin">
+<INCLURE{fond=paginations/big/pagination_mots, id_article, env, ajax}>
+</div>
+
+<div class="border_bottom small_padding text-right">
+<button class="btn btn-sm btn-default" data-toggle="collapse" data-parent="#tops" href="#infoArticle" aria-hidden="true" rel="nofollow"><i class="glyphicon glyphicon-remove-sign"></i>&nbsp;<:fermer:></button>
+</div>
+</div><!-- /_infoArticle -->
+
+</div>
+
+<div class="col-md-4">
+<div id="socialtags" class="text-center"></div>
+<div class="text-center"><ul class="list-inline">
+<li>[<div class="small_margin">(#FORMULAIRE_JAIME)</div>]</li><li>[<div class="small_margin">(#FORMULAIRE_FAVORI)</div>]</li>
+</ul></div>
+</div>
+
+</div></div></div>
+
+</BOUCLE_tops>

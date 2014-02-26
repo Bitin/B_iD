@@ -1,0 +1,56 @@
+#FILTRE{mini_html}
+#SET{date_debut,#ENV{date_debut,#ENV{date}}|affdate{Y-m-d 00:00:00}}
+#SET{date_fin,#ENV{date_debut,#ENV{date}}|affdate{Y-m-d 23:59:59}}
+<!DOCTYPE html><html lang="en">
+<INCLURE{fond=head/jour_head,date,env}>
+<body>
+<!-- NAVBAR -->
+<INCLURE{fond=navbar/navbar,env}>
+<!-- TOP -->
+<div id="tops">
+<div class="container text-left">
+<div class="row">
+
+<div class="col-md-8">
+
+<div class="lead text-center"><h1><i class="glyphicon glyphicon-calendar"></i>&nbsp;[(#GET{date_debut}|affdate)]</h1></div>
+</div>
+
+<div class="col-md-4">
+<div id="socialtags" class="text-center"></div>
+<div class="text-center"><ul class="list-inline">
+<li>[<div class="small_margin">(#FORMULAIRE_JAIME)</div>]</li><li>[<div class="small_margin">(#FORMULAIRE_FAVORI)</div>]</li>
+</ul></div>
+</div>
+
+</div></div></div>
+<!-- CONTENT
+================================================== -->
+<!-- container --><div class="container">
+<!-- contenu --><div id="contenu" class="row">
+<div class="col-md-8">
+
+<B_ev>
+	[<span class="label label-danger">(#TOTAL_BOUCLE|singulier_ou_pluriel{agenda:info_un_evenement,agenda:info_nombre_evenements})</span><br />]
+	<ul class="liste-items evenements list-unstyled">
+<BOUCLE_ev(EVENEMENTS){!evenement_passe #GET{date_debut}}{!evenement_a_venir #GET{date_fin}}{par date_debut}{id_article?}{id_rubrique?}{id_mot?}{id_evenement_source?}>
+		<li class="item">
+		<div class="margin_top text-left border_bottom">
+		<h2><a href="#URL_EVENEMENT" target="_top">#TITRE</a></h2>
+[<strong><i class="glyphicon glyphicon-time"></i>&nbsp;(#DATE_DEBUT|Agenda_affdate_debut_fin{#DATE_FIN,#HORAIRE})</strong>]
+[<br /><span class="color font"><i class="glyphicon glyphicon-globe"></i>&nbsp;(#LIEU)</span><br />]
+<a href="#URL_EVENEMENT" target="_top"><i class="glyphicon glyphicon-hand-right"></i>&nbsp;<:en_savoir_plus:></a>
+[<blockquote>(#ADRESSE)</blockquote>]
+		</div></li>
+	</BOUCLE_ev>
+	</ul>
+</B_ev>
+
+</div>
+<!-- A_SIDE --><div class="col-md-4">
+<INCLURE{fond=aside/aside,env}>
+</div><!-- /_A_SIDE -->
+</div><!-- /.contenu -->
+</div><!-- /.container -->
+<!-- FOOTER --><INCLURE{fond=footer,env}>
+</body></html>

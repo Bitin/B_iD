@@ -1,0 +1,8 @@
+<BOUCLE_site_une(SITES){titre_mot=site_une}{0,1}{par hasard}>
+<div class="border_bottom"><b class="small_margin glyphicon glyphicon-thumbs-up"></b><span class="font">&nbsp;[(#NOM_SITE|couper{70})]</span></div>
+<div align="margin_top text-left">
+<BOUCLE_derniers_articles(SYNDIC_ARTICLES){id_syndic}{!par date}{0,8}>
+<p class="small_margin">[<a href="#URL_ARTICLE" target="_blank"><i class="glyphicon glyphicon-new-window"></i>&nbsp;(#TITRE|couper{80})</a>]</p>
+</BOUCLE_derniers_articles>
+</div>
+</BOUCLE_site_une>

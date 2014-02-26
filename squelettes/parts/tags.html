@@ -1,0 +1,14 @@
+#FILTRE{mini_html}
+<B_tags_groupe>
+<BOUCLE_tags_groupe(GROUPES_MOTS){par titre}>
+[(#ONGLETS_TITRE{#TITRE})]
+<div class="margin">
+	<div class="small_margin small_padding"><h2><i class="glyphicon glyphicon-tags"></i>&nbsp; #TITRE</h2>
+	<a href="[(#URL_PAGE{groupe, id_groupe=#ID_GROUPE})]" target="_top"><i class="glyphicon glyphicon-hand-right"></i>&nbsp; <:en_savoir_plus:></a></div>
+<hr>
+<INCLURE{fond=paginations/big/pagination_mots,id_groupe,env,ajax}>
+</div>
+</BOUCLE_tags_groupe>
+</B_tags_groupe>
+<//B_tags_groupe>
+[<br />(#ONGLETS_FIN)]

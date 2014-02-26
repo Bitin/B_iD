@@ -1,0 +1,13 @@
+#FILTRE{mini_html}
+<BOUCLE_principale(AUTEURS){id_auteur=#SESSION{id_auteur}}{tout}>
+<B_rubriques>
+[(#ANCRE_PAGINATION)]
+<BOUCLE_rubriques(NOTATIONS){!par note}{objet=rubrique}{pagination 5}{!par maj}{id_auteur=#ENV{id_auteur,#SESSION{id_auteur}}}{0,20}>
+[(#INCLURE{fond=modeles/inc-notation-preferee-#OBJET}{id_objet})]
+</BOUCLE_rubriques>
+[<div class="clearfix"></div>
+<p align="center" class="btn btn-sm btn-default pagination ajax">(#PAGINATION)</p>]
+</B_rubriques>
+<:my_ajouter_rubrique:>
+<//B_rubriques>
+</BOUCLE_principale>

@@ -1,0 +1,19 @@
+<B_breves>
+<!-- Breves -->
+<div class="margin">
+[(#ANCRE_PAGINATION)]
+<ul class="list-unstyled">
+<BOUCLE_breves(BREVES){id_mot ?}{id_rubrique ?}{pagination 2}{!par date}>
+<li>
+<h4><a href="#URL_BREVE" target="_top"><i class="glyphicon glyphicon-ok"></i>&nbsp; [(#TITRE|couper{120})]</a></h4>
+<blockquote>
+<p>[(#TEXTE|couper{200})]</p>
+<small>[(#DATE|jour)/][(#DATE|mois)][/(#DATE|annee)&nbsp;] <i class="glyphicon glyphicon-hand-right"></i>&nbsp;<cite title="[(#TITRE_PARENT|couper{100})]"><a href="[(#URL_RUBRIQUE)]">[(#TITRE_PARENT|couper{60})]</a></cite></small>
+</blockquote>
+</li>
+</BOUCLE_breves>
+</ul>
+[<div class="clearfix"></div>
+<p align="center" class="btn btn-sm btn-default pagination ajax">(#PAGINATION)</p>]
+</div>
+</B_breves><//B_breves>

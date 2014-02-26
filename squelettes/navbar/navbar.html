@@ -1,0 +1,78 @@
+    [(#INCLURE{fond=parts/in_nav})]
+    <div id="top" class="navbar-wrapper">
+      <div class="container">
+        <div class="navbar navbar_inverse navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle margin_top" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              [<a href="#URL_SITE_SPIP" title="<:accueil_site:>">(#LOGO_SITE_SPIP|image_reduire{120,70}|inserer_attribut{alt,#NOM_SITE_SPIP}|inserer_attribut{class,logo_nav})</a>]
+            </div>
+
+<div id="navigation" class="navbar-collapse collapse margin_top">
+<ul class="nav navbar-nav">
+<BOUCLE_racine(RUBRIQUES){racine}{par num titre}{0,3}{doublons racine}{doublons racine_plus}>
+
+<B_ssrub>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">#TITRE<b class="caret"></b></a>
+<ul class="fond dropdown-menu">
+<li><a href="[(#URL_RUBRIQUE|url_absolue)]" target="_top"><em><i class="glyphicon glyphicon-arrow-right"></i>&nbsp; #TITRE</em></a></li>
+<li class="divider"></li>
+<BOUCLE_ssrub(RUBRIQUES){id_parent}{par num titre}>
+<li><a href="[(#URL_RUBRIQUE|url_absolue)]" target="_top"><i class="glyphicon glyphicon-hand-right"></i>&nbsp; #TITRE</a></li>
+</BOUCLE_ssrub>
+</ul>
+</li>
+</B_ssrub>
+
+<li><a href="[(#URL_RUBRIQUE|url_absolue)]" target="_top"><i class="glyphicon glyphicon-hand-right"></i>&nbsp; #TITRE</a></li>
+<//B_ssrub>
+
+</BOUCLE_racine>
+<BOUCLE_racine_suite(RUBRIQUES){racine}{par num titre}{doublons racine}{0,1}>
+<B_ssrub_suite>
+
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">Plus<b class="caret"></b></a>
+<ul class="dropdown-menu">
+<BOUCLE_ssrub_suite(RUBRIQUES){racine}{par num titre}{doublons racine_plus}>
+<li><a href="[(#URL_RUBRIQUE|url_absolue)]" target="_top"><i class="glyphicon glyphicon-hand-right"></i>&nbsp; #TITRE</a></li>
+</BOUCLE_ssrub_suite>
+</B_ssrub_suite>
+<//B_ssrub_suite>
+</ul>
+</li>
+</BOUCLE_racine_suite>
+
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-fire"></i>&nbsp; <:sites_web:></a>
+<ul class="fond dropdown-menu">
+<li><a href="#URL_PAGE{liens}" target="_top"><i class="glyphicon glyphicon-hand-right"></i>&nbsp; <:sites_web:></a></li>
+<BOUCLE_recomande(SITES){titre_mot=recommande}{0,6}{par hasard}><li>
+<a href="#URL_SITE" target="_blank" rel="nofollow">[<i class="glyphicon glyphicon-share"></i>&nbsp;(#NOM_SITE|couper{60})]</a>
+</li></BOUCLE_recomande>
+</ul>
+</li>
+
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-star-empty"></i>&nbsp; <:suivez_moi:></a>
+<ul class="fond dropdown-menu">
+<li><a href="#URL_PAGE{backend}" class="rezosocio" target="_blank" title="RSS" rel="nofollow"><img src="#CHEMIN{img/reseaux_sociaux/rss-2.png}" alt="RSS"> RSS</a></li>
+<BOUCLE_rezosocio(SITES){logo}{titre_mot=rezosocio}{0,4}{par hasard}><li>
+<a href="#URL_SITE" class="rezosocio" target="_blank" rel="nofollow" title="#NOM_SITE">[(#LOGO_SITE|image_reduire{20,20}|inserer_attribut{alt,#NOM_SITE}) #NOM_SITE]</a>
+</li></BOUCLE_rezosocio>
+</ul>
+</li>
+
+</ul>
+</div><!-- #navigation -->
+
+          </div>
+        </div>
+      </div>
+    </div>

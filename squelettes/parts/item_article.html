@@ -1,0 +1,14 @@
+[(#SESSION{id_auteur}|non)
+[(#SET{auth,pasok})]
+]<BOUCLE_article(ARTICLES){id_article}>
+<div class="row featurette">
+ <div class="col-md-12">
+  <h2 class="featurette-heading"><a href="#URL_ARTICLE" target="_top">#TITRE</a> <span class="text-muted">#SOUSTITRE</span></h2>
+  [<a href="#URL_ARTICLE" target="_top">(#LOGO_ARTICLE|image_reduire{200,200}|inserer_attribut{alt, #TITRE})</a>]
+  <p class="lead">[(#INTRODUCTION)]</p>
+  <div class="text-left btn-group"><a class="btn btn-sm btn-default" href="#URL_ARTICLE" target="_top" role="button"><:en_savoir_plus:> »</a>
+  <BOUCLE_reserve(ARTICLES){id_article}{titre_mot=reserve}{si #GET{auth}|=={pasok}}><a class="btn btn-danger btn-sm" title="<:reserves:>" href="#URL_PAGE{identification_login}" target="_top"><i class="glyphicon glyphicon-eye-close"></i>&nbsp;</a></BOUCLE_reserve></div>
+ </div>
+</div>
+<hr class="featurette-divider">
+</BOUCLE_article>

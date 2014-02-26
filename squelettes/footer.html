@@ -1,0 +1,83 @@
+<div class="wrapper fond_clair">
+<div class="container">
+
+<div class="row">
+
+<div class="text-center col-md-12 margin_top"><p><a href="#top" target="_self"><i class="glyphicon glyphicon-hand-up"></i>&nbsp;<:top:></a></p></div>
+
+<div class="clearfix"></div>
+
+<div class="col-md-4 margin_top" onmouseover="this.style.background='#FFFFFF';" onmouseout="this.style.background='none';">
+<div class="margin">
+<div><INCLURE{fond=parts/a_breves}{env}></div>
+<div class="margin_top"><INCLURE{fond=parts/a_derniers}{env}></div></div>
+</div>
+
+<div class="col-md-4 margin_top" onmouseover="this.style.background='#FFFFFF';" onmouseout="this.style.background='none';">
+<div class="margin"><INCLURE{fond=parts/a_pluslus}{env}></div>
+</div>
+
+<div class="col-md-4 margin_top" onmouseover="this.style.background='#FFFFFF';" onmouseout="this.style.background='none';">
+<div class="margin"><INCLURE{fond=parts/a_site_une}{env}></div>
+</div>
+
+<div class="clearfix"></div>
+
+<div class="text-center margin_top margin"><span class="border_bottom"><:sites_recommandes:></span></div>
+<B_recommande_sites><BOUCLE_recommande_sites(SITES){titre_mot=recommande}{0,6}{par hasard}>
+<div class="col-md-2 text-center">
+<div class="text-center margin">[<span class="border_bottom"><a href="#URL_SITE" target="_blank" rel="nofollow">(#NOM_SITE|couper{60})</a></span>]</div>
+<div class="text-center margin">
+[<a href="#URL_SITE" target="_blank" title="#NOM_SITE" rel="nofollow">(#LOGO_SITE|image_reduire{200,100}|inserer_attribut{alt,#NOM_SITE}|inserer_attribut{style, 'max-width:100%;height:auto;'})</a>]
+</div></div>
+</BOUCLE_recommande_sites>
+</B_recommande_sites>
+<div class="col-md-2 text-center"></div>
+<//B_recommande_sites>
+</div>
+
+<div class="clearfix"></div>
+
+<div class="row">
+<div class="col-md-12">
+<div class="margin padding">
+      <footer>
+      <div class="text-center padding margin"><span class="border_bottom"><i class="glyphicon glyphicon-star-empty"></i>&nbsp; <:suivez_moi:></span><br /><INCLURE{fond=parts/rezosocio}{env}></div>
+        <div class="padding margin">
+        
+        <div class="margin padding text-center">
+        <p><a href="#top" target="_self"><i class="glyphicon glyphicon-hand-up"></i>&nbsp;<:top:></a></p>
+        <p><:sauf_mention:> <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/fr/" title="Licence Attribution-Share Alike 3.0 Unported (CC BY-SA 3.0). To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/fr" target="_blank" rel="nofollow">licence <em>CC BY-SA 3.0</em></a><br /><BOUCLE_mel(ARTICLES){par date}{0,1}>[(#DATE|annee) &middot; ]</BOUCLE_mel>[(#DATE|annee)] | <a href="#URL_SITE_SPIP" title="#NOM_SITE_SPIP #SLOGAN_SITE_SPIP">(CC)&nbsp;#NOM_SITE_SPIP</a> <p>
+
+<p>
+<BOUCLE_contact(ARTICLES){page=contact}>
+<a href="#URL_PAGE{contact}" target="_top" rel="nofollow" title="contact">Contact</a>&nbsp;|&nbsp;
+</BOUCLE_contact>
+<BOUCLE_apropos(ARTICLES){page=apropos}>
+<a href="#URL_PAGE{apropos}" target="_top" rel="nofollow" title="<:a_propos:>"><:a_propos:></a>
+</BOUCLE_apropos>
+<BOUCLE_cgu(ARTICLES){page=cgu}>&nbsp;|&nbsp;<a href="#URL_PAGE{cgu}" target="_top" rel="nofollow" title="<:conditions:>"><:conditions:></a>
+</BOUCLE_cgu>
+<BOUCLE_cgv(ARTICLES){page=cgv}>&nbsp;|&nbsp;<a href="#URL_PAGE{cgv}" target="_top" rel="nofollow" title="CGV">CGV</a>
+</BOUCLE_cgv>
+<BOUCLE_newsletter(ARTICLES){page=newsletter}{0,1}>&nbsp;|&nbsp;<a href="#URL_PAGE{newsletter}" target="_top" rel="nofollow" title="News Letters">News Letters</a>
+</BOUCLE_newsletter><br />
+<a href="#URL_PAGE{plan}" target="_top"><:plan_site:></a> | <a href="#URL_PAGE{recherche}" target="_top"><:info_rechercher:></a>
+<br />
+<BOUCLE_don(ARTICLES){page=don}>
+<a href="#URL_PAGE{don}" target="_top" rel="nofollow" title="#TITRE">#TITRE</a>
+</BOUCLE_don>
+<BOUCLE_mediarezo(MOTS){titre=Recommande}{0,1}>&nbsp;|&nbsp;<a href="#URL_MOT" target="_top" rel="nofollow" title="<:sites_recommandes:>"><:sites_recommandes:></a></BOUCLE_mediarezo>
+<BOUCLE_annonce(ARTICLES){page=annonces}{0,1}>&nbsp;|&nbsp;<a href="#URL_PAGE{annonces}" target="_top" rel="nofollow" title="<:annonces:>"><:annonces:></a></BOUCLE_annonce>
+<BOUCLE_webmail(SITES){titre_mot=webmail}{0,1}{par hasard}>&nbsp;|&nbsp;<a href="#URL_SITE" target="_top" rel="nofollow" title="Webmail #NOM_SITE_SPIP">Webmail</a></BOUCLE_webmail>
+</p>
+      </div>
+<div class="text-center margin padding">
+<p><a href="http://bitin.fr" title="Template B-iD 1.0 par Bitin.fr" target="_blank" rel="nofollow">B-iD <:par:> Bitin.fr</a> & <a href="http://spip.net" target="_blank" rel="nofollow" title="Spip, gestionnaire de contenu pour le oueb">Spip</a></p></div>
+        
+        </div>
+      </footer>
+</div>
+</div></div>
+
+</div></div>

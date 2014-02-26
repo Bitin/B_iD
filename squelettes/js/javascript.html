@@ -1,0 +1,21 @@
+#FILTRE{mini_html}
+<script type="text/javascript">
+      !function ($) {
+        $(function(){
+// carousel
+          $('#presentation').carousel({interval:20000,
+          pause:"hover",
+          wrap:true})
+          $('#une').carousel({interval:16000,
+          pause:"hover",
+          wrap:true})
+          $('#galerie').carousel({interval:false,
+          wrap:true})
+        })
+      }(window.jQuery)
+// Fonction executée lors de l'utilisation du clic droit.
+$(document).bind("contextmenu",function()
+{// Message d'alerte clic droit
+alert('Sauf mention contraire, les droits de reproduction et de diffusion du contenu de cette page sont autorisés selon la Licence Attribution-Share Alike 3.0 Unported (CC BY-SA 3.0). Vous êtes donc invités à copier et reproduire librement le contenu de cette page si vous en mentionnez l\'auteur et la source (url de la page) et si vous le partagez dans les mêmes conditions, détaillées ici: http://creativecommons.org/licenses/by-nc-sa/3.0/fr/. Merci. #NOM_SITE_SPIP.');
+});
+</script>

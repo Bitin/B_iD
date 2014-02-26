@@ -1,0 +1,16 @@
+<B_auteurs>
+<!-- Sites -->
+[(#ANCRE_PAGINATION)]
+<ul class="list-unstyled">
+<BOUCLE_auteurs(AUTEURS){id_mot ?}{id_article ?}{pagination 6}>
+<h4><a href="#URL_AUTEUR" target="_top"><i class="glyphicon glyphicon-user"></i>&nbsp; [(#NOM|couper{120})]</a></h4>
+<blockquote>
+<p>[(#BIO|couper{200})]</p>
+[<small><:en_savoir_plus:>: &nbsp; <i class="glyphicon glyphicon-share"></i>&nbsp;<cite title="[(#NOM_SITE|couper{100})]"><a href="[(#URL_SITE)]" target="_blank">(#NOM_SITE|couper{60})</a></cite></small>]
+</blockquote>
+</li>
+</BOUCLE_auteurs>
+</ul>
+[<div class="clearfix"></div>
+<p align="center" class="btn btn-small pagination ajax">(#PAGINATION)</p>]
+</B_auteurs><//B_auteurs>

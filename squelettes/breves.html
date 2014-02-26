@@ -1,0 +1,81 @@
+#FILTRE{mini_html}
+
+<!DOCTYPE html><html lang="en">
+<head>
+<!-- REGLES -->
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<INCLURE{fond=icon}>
+<!-- INFOS -->
+<title><:breves:> [ @ (#NOM_SITE_SPIP|textebrut)]</title>
+<META NAME="generator" CONTENT="SPIP[ (#SPIP_VERSION)]" />
+<META NAME="description" content="[<:breves:> @ (#NOM_SITE_SPIP|textebrut)]">
+<META NAME="author" content="[(#NOM_SITE_SPIP|textebrut)]">
+<META NAME="copyright" CONTENT="©">
+<META NAME="identifier-url" CONTENT="[(#URL_PAGE{breves}|url_absolue)]">
+<META NAME="organization" CONTENT="[(#NOM_SITE_SPIP|textebrut)]">
+<META NAME="Rating" CONTENT="general">
+<META http-equiv="Content-Language" CONTENT="fr">
+<META NAME="expires" CONTENT="never">
+<META NAME="Distribution" CONTENT="Global">
+<META NAME="Audience" CONTENT="general">
+<!-- RSS -->
+[<link rel="alternate" type="application/rss+xml" title="RSS" href="(#URL_PAGE{backend})" />]
+[<link rel="alternate" type="application/rss+xml" title="RSS <:breves:>" href="(#URL_PAGE{backend-breves})" />]
+[<link rel="alternate" type="application/rss+xml" title="RSS <:agenda:>" href="(#URL_PAGE{rss_agenda})" />]
+<!-- Bootstrap core CSS -->
+#INSERT_HEAD_CSS
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+<!-- Custom styles -->
+<link href="#CHEMIN{css/carousel.css}" rel="stylesheet">
+<INCLURE{fond=css/style}>
+<BOUCLE_couleur(RUBRIQUES){titre_mot=couleur}{par hasard}{0,1}>
+<INCLURE{fond=css/couleur,id_rubrique=#ID_RUBRIQUE,env,ajax}>
+</BOUCLE_couleur>
+#INSERT_HEAD
+<!-- SCRIPTS -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<INCLURE{fond=js/javascript}>
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+<!-- NAVBAR -->
+<INCLURE{fond=navbar/navbar,env}>
+<!-- TOP -->
+<div id="tops">
+<div class="container text-left">
+<div class="row">
+
+<div class="col-md-7 col-md-offset-1">
+
+<div class="lead text-center"><h1><i class="glyphicon glyphicon-ok"></i>&nbsp;<:breves:></h1></div>
+</div>
+
+<div class="col-md-4">
+<div id="socialtags" class="text-center"></div>
+<div class="text-center"><ul class="list-inline">
+<li>[<div class="small_margin">(#FORMULAIRE_JAIME)</div>]</li><li>[<div class="small_margin">(#FORMULAIRE_FAVORI)</div>]</li>
+</ul></div>
+</div>
+
+</div></div></div>
+<!-- CONTENT
+================================================== -->
+<!-- container --><div class="container">
+<!-- contenu --><div id="contenu" class="row">
+<div class="col-md-8 col-md-offset-1">
+<!-- breves --><INCLURE{fond=paginations/small/pagination_breves,env,ajax}><!-- /_breves -->
+</div>
+<!-- A_SIDE --><div class="col-md-3">
+<INCLURE{fond=aside/aside,env}>
+</div><!-- /_A_SIDE -->
+</div><!-- /.contenu -->
+</div><!-- /.container -->
+<!-- FOOTER --><INCLURE{fond=footer,env}>
+</body></html>

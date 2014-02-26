@@ -1,0 +1,39 @@
+#FILTRE{mini_html}
+<BOUCLE_principale(RUBRIQUES){id_rubrique}>
+    <!-- Carousel une
+    ================================================== -->
+<div id="une" class="slide" data-ride="carousel">
+
+      <div class="carousel-inner">
+        <BOUCLE_carousel1(ARTICLES pb_selection){spip_pb_selection.id_rubrique}{par ordre}{0,1}{doublons carousel}>
+        <div class="item active">
+              <!-- #### article --><INCLURE{fond=parts/article}{id_article}{env}{ajax}><!-- / article -->
+          </div>
+        </BOUCLE_carousel1>
+        
+        <BOUCLE_carousel2(ARTICLES pb_selection){spip_pb_selection.id_rubrique}{par ordre}{0,5}{doublons carousel}>
+        <div class="item">
+              <!-- #### article --><INCLURE{fond=parts/article}{id_article}{env}{ajax}><!-- / article -->
+        </div>
+        </BOUCLE_carousel2>
+      </div>
+
+      <!-- Indicators -->
+      <div class="clearfix margin">
+      <ul class="list-inline">
+      <li><a class="left carousel-control" href="#une" data-slide="prev"><span class="glyphicon glyphicon-circle-arrow-left"></span></a></li>
+      <li>
+      <ol class="carousel-indicators">
+      <BOUCLE_indicators1(ARTICLES pb_selection){spip_pb_selection.id_rubrique}{par ordre}{0,1}{doublons indicators}>
+        <li data-target="#une" data-slide-to="0" class="active"></li>
+      </BOUCLE_indicators1>
+      <BOUCLE_indicators2(ARTICLES pb_selection){spip_pb_selection.id_rubrique}{par ordre}{0,5}{doublons indicators}>
+        <li class="" data-target="#une" data-slide-to="#COMPTEUR_BOUCLE"></li>
+      </BOUCLE_indicators2>
+      </ol></li>
+      <li><a class="right carousel-control" href="#une" data-slide="next"><span class="glyphicon glyphicon-circle-arrow-right"></span></a></li>
+      </ul>
+      </div>
+
+</div><!-- /.carousel -->
+</BOUCLE_principale>

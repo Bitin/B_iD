@@ -1,0 +1,14 @@
+#FILTRE{mini_html}
+[(#REM) Breves trouvees ]
+<B_breves>
+<div class="margin">
+#ANCRE_PAGINATION
+<div class="border_bottom"><span class="font"><b class="glyphicon glyphicon-search"></b>&nbsp; <:breves:breves:></span>&nbsp;<span class="color">[(#GRAND_TOTAL)]</span></div>
+<ul class="list-unstyled">
+<BOUCLE_breves(BREVES) {recherche} {!par points} {pagination 5}>
+<li class="small_margin"><a href="#URL_BREVE"><i class="glyphicon glyphicon-hand-right"></i>&nbsp; #TITRE</a></li>
+</BOUCLE_breves>
+</ul>
+[<p align="left" class="pagination btn btn-sm btn-default ajax">(#PAGINATION)</p>]
+</div>
+</B_breves>

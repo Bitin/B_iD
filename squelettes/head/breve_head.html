@@ -1,0 +1,45 @@
+<head>
+<BOUCLE_principale(BREVES){id_breve}>
+<!-- REGLES -->
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<INCLURE{fond=icon}>
+<!-- INFOS -->
+<title>#TITRE @ #NOM_SITE_SPIP</title>
+<META NAME="generator" CONTENT="SPIP[ (#SPIP_VERSION)]" />
+<META NAME="subject" CONTENT="[(#TITRE|textebrut)] [ - (#NOM_SITE_SPIP|textebrut)]">
+<META NAME="author" CONTENT="[(#NOM_SITE_SPIP|textebrut)]">
+<META NAME="description" CONTENT="[(#INTRODUCTION|couper{200}|textebrut)]">
+<META NAME="copyright" CONTENT="©">
+<META NAME="keywords" CONTENT="#NOM_SITE_SPIP,<BOUCLE_keywords(MOTS){id_breve}{!type=admin}{!type=annonces}{!type=illustrations}{par hasard}{0,50}{","}>[(#TITRE|textebrut)]</BOUCLE_keywords>">
+<META NAME="identifier-url" CONTENT="[(#URL_BREVE|liens_absolus)]">
+<META NAME="organization" CONTENT="[(#NOM_SITE_SPIP|textebrut)]">
+<META NAME="Rating" CONTENT="general">
+<META http-equiv="Content-Language" CONTENT="fr">
+<META NAME="expires" CONTENT="never">
+<META NAME="Distribution" CONTENT="Global">
+<META NAME="Audience" CONTENT="general">
+<!-- RSS -->
+[<link rel="alternate" type="application/rss+xml" title="RSS" href="(#URL_PAGE{backend})" />]
+[<link rel="alternate" type="application/rss+xml" title="RSS <:breves:>" href="(#URL_PAGE{backend-breves})" />]
+[<link rel="alternate" type="application/rss+xml" title="RSS <:agenda:>" href="(#URL_PAGE{rss_agenda})" />]
+<!-- Bootstrap core CSS -->
+#INSERT_HEAD_CSS
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+<!-- Custom styles -->
+<link href="#CHEMIN{css/carousel.css}" rel="stylesheet">
+<INCLURE{fond=css/style}>
+<BOUCLE_couleur(RUBRIQUES){id_rubrique}><INCLURE{fond=css/couleur,id_rubrique,env}></BOUCLE_couleur>
+#INSERT_HEAD
+<!-- SCRIPTS -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<INCLURE{fond=js/javascript}>
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+</BOUCLE_principale>

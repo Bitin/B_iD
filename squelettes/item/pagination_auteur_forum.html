@@ -1,0 +1,17 @@
+#FILTRE{mini_html}
+<div class="margin">
+<div class="small_padding small_margin"><span class="border_bottom font"><i class="glyphicon glyphicon-comment"></i>&nbsp; Mes messages</span></div>
+<B_derniers_forums>
+[(#ANCRE_PAGINATION)]
+<BOUCLE_derniers_forums(FORUMS){id_auteur}{pagination 6}{!par date}>
+<div class="small_margin">
+        <strong>[<i class="glyphicon glyphicon-hand-right"></i>&nbsp;<a href="#URL_FORUM">(#TITRE)</a>]</strong><br />
+        <p><small>[(#DATE|jour)][/(#DATE|mois)][/(#DATE|annee)]</small>
+        [&nbsp;(#TEXTE|couper{200})]</p>
+</div>
+</BOUCLE_derniers_forums>
+[<p class="pagination ajax btn btn-sm btn-default ajax">(#PAGINATION)</p>]
+</B_derniers_forums>
+<div class="margin_top"><:aucun_article:></div>
+<//B_derniers_forums>
+</div>

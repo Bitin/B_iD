@@ -1,0 +1,61 @@
+<B_principale><BOUCLE_principale(EVENEMENTS){id_evenement}>
+<!DOCTYPE html><html lang="en">
+<INCLURE{fond=head/evenement_head,id_evenement,env}>
+<body>
+<!-- NAVBAR -->
+<INCLURE{fond=navbar/navbar,env}>
+<!-- TOP -->
+<div id="tops">
+<div class="container text-left">
+<div class="row">
+
+<div class="col-md-7 col-md-offset-1">
+<div class="margin_top text-right"><strong>
+<a href="#URL_SITE_SPIP" target="_top"><b class="glyphicon glyphicon-home"></b>&nbsp;<:accueil_site:></a><B_ariane>&nbsp;|&nbsp;<BOUCLE_ariane(HIERARCHIE){id_article}{" | "}{0,3}>[<a href="#URL_RUBRIQUE" target="_top">(#TITRE|couper{50})</a>]</BOUCLE_ariane></B_ariane><//B_ariane>
+</strong></div>
+<div class="lead text-center"><h1 class="tops">#TITRE</h1>
+[<strong class="text-left"><i class="glyphicon glyphicon-calendar"></i>&nbsp;(#DATE_DEBUT|Agenda_affdate_debut_fin{#DATE_FIN,#HORAIRE})</strong>]</div>
+</div>
+
+<div class="col-md-4">
+<div id="socialtags" class="text-center"></div>
+<div class="text-center"><ul class="list-inline">
+<li>[<div class="small_margin">(#FORMULAIRE_JAIME)</div>]</li><li>[<div class="small_margin">(#FORMULAIRE_FAVORI)</div>]</li>
+</ul></div>
+</div>
+
+</div></div></div>
+<!-- CONTENT
+================================================== -->
+<!-- container --><div class="container">
+<!-- contenu --><div id="contenu" class="row">
+<div class="col-md-8 col-md-offset-1">
+
+<h2>#TITRE</h2>
+[<strong><i class="glyphicon glyphicon-time"></i>&nbsp;(#DATE_DEBUT|Agenda_affdate_debut_fin{#DATE_FIN,#HORAIRE})</strong>]
+[<br /><span class="color font"><i class="glyphicon glyphicon-globe"></i>&nbsp;(#LIEU)</span><br />]
+[<blockquote>(#ADRESSE)</blockquote>]
+
+<BOUCLE_article_even(ARTICLES){id_evenement}>
+<hr>
+<div class="text-center padding">
+<h3><a href="#URL_ARTICLE" target="_top">#TITRE</a></h3>
+[(#SURTITRE)<br />]
+[<span class="color">(#SOUSTITRE)</span>]
+<div class="clearfix"></div>
+[<div class="lead text-left color">(#CHAPO)</div>]
+[<p class="justify">(#TEXTE|couper{600})</p>]
+ <a href="#URL_ARTICLE" target="_top"><i class="glyphicon glyphicon-hand-right"></i>&nbsp;<:en_savoir_plus:></a></div>
+</BOUCLE_article_even>
+
+</div>
+<!-- A_SIDE --><div class="col-md-3">
+<INCLURE{fond=aside/aside,env}>
+</div><!-- /_A_SIDE -->
+</div><!-- /.contenu -->
+</div><!-- /.container -->
+<!-- FOOTER --><INCLURE{fond=footer,env}>
+</body></html>
+</BOUCLE_principale>
+</B_principale>
+<//B_principale>

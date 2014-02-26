@@ -1,0 +1,20 @@
+<B_sites>
+<!-- Sites -->
+[(#ANCRE_PAGINATION)]
+<ul class="list-unstyled">
+<BOUCLE_sites(SITES){pagination 6}{titre_mot=partenaires}>
+<li>
+<h4><a href="[(#ID_SYNDIC|generer_url_entite{site})]" target="_top"><i class="glyphicon glyphicon-hand-right"></i>&nbsp; [(#NOM_SITE|couper{120})]</a></h4>
+<B_ref>
+<BOUCLE_ref(SYNDIC_ARTICLES){id_syndic}{0,2}>
+<small>[<a href="#URL_ARTICLE" target="_blank"><i class="glyphicon glyphicon-share-alt"></i>&nbsp;(#TITRE|couper{120})</a>] &nbsp;<cite title="[(#DATE|jour)/][(#DATE|mois)][/(#DATE|annee)]">[ (#DATE|jour)/][(#DATE|mois)][/(#DATE|annee)]</cite></small><br />
+</BOUCLE_ref>
+</B_ref>
+<small>[(#DESCRIPTIF|couper{200})<br />][(#NOM_SITE|couper{80})&nbsp;] <i class="glyphicon glyphicon-link"></i>&nbsp;<cite title="[(#URL_SITE)]"><a href="[(#URL_SITE)]" target="_blank">[(#URL_SITE|couper{70})]</a></cite></small>
+<//B_ref>
+</li>
+</BOUCLE_sites>
+</ul>
+[<div class="clearfix"></div>
+<p align="center" class="btn btn-small pagination ajax">(#PAGINATION)</p>]
+</B_sites><//B_sites>

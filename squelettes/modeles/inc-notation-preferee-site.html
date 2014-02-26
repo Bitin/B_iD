@@ -1,0 +1,9 @@
+#FILTRE{mini_html}
+<B_sites>[(#ANCRE_PAGINATION)]
+<BOUCLE_sites(SITES){id_syndic=#ID_OBJET}{pagination 5}>
+[<a href="[(#ID_SYNDIC|generer_url_entite{site})]" target="_top" class="btn btn-sm btn-default"><i class="glyphicon glyphicon-link"></i>&nbsp;(#NOM_SITE|couper{60})</a>]
+</BOUCLE_sites>
+[<div class="clearfix"></div>
+<p class="pagination ajax btn btn-default btn-sm">(#PAGINATION)</p>]
+</B_sites>
+<//B_sites>

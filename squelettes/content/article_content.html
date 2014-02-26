@@ -1,0 +1,108 @@
+<BOUCLE_principale(ARTICLES){id_article}>
+<div id="contenu" class="row">
+<!-- CONTENT --><div class="col-md-8 col-md-offset-1">
+
+<div class="text-center">[<h3>(#SURTITRE) <span class="text-muted">#SOUSTITRE</span></h3>]</div>
+[<div class="lead justify color">(#CHAPO)</div>]
+
+<!-- galerie -->[(#SESSION{id_auteur}|oui)
+[(#SET{auth,ok})]
+]
+<B_reserve_img>
+<BOUCLE_reserve_img(ARTICLES){id_article}{titre_mot=reserve}>
+</BOUCLE_reserve_img>
+<BOUCLE_galerie_res(ARTICLES){id_article}{titre_mot=galerie}{si #GET{auth}|=={ok}}>
+<!-- galerie folio --><INCLURE{fond=parts/galerie}{id_article}{env}><!-- /_galerie folio-->
+</BOUCLE_galerie_res>
+</B_reserve_img>
+<BOUCLE_pas_galerie_res(ARTICLES){id_article}{titre_mot=galerie}>
+<!-- galerie folio --><INCLURE{fond=parts/galerie}{id_article}{env}><!-- /_galerie folio-->
+</BOUCLE_pas_galerie_res>
+<//B_reserve_img>
+<!-- /_galerie -->
+
+<div class="small_margin">
+</div>
+[(#SET{hauteur,[(#LOGO_ARTICLE||extraire_attribut{height})]})]
+[(#SET{largeur,[(#LOGO_ARTICLE||extraire_attribut{width})]})]
+<B_logo>
+<BOUCLE_logo(ARTICLES){id_article}{si #GET{largeur}|>={800}}>
+[<div class="text-center"><p align="center">(#LOGO_ARTICLE_NORMAL|image_reduire{600,0}|inserer_attribut{class,img-thumbnail}|inserer_attribut{style,'max-width:98%;'})</p></div>]
+[<div class="text-right"><a href="#URL_SITE" target="_blank" class="btn btn-sm btn-default"><i class="glyphicon glyphicon-link"></i>&nbsp;(#NOM_SITE|couper{60})</a></div>]
+</BOUCLE_logo></B_logo>
+<B_logo300>
+<BOUCLE_logo300(ARTICLES){id_article}{si #GET{largeur}|<{800}}{si #GET{largeur}|>={600}}>
+[<div class="margin text-center">(#LOGO_ARTICLE_NORMAL|image_reduire{600,400}|inserer_attribut{class,shadow}|inserer_attribut{style,'max-width:98%;'})</div>]
+[<div class="text-right"><a href="#URL_SITE" target="_blank" class="btn btn-sm btn-default"><i class="glyphicon glyphicon-link"></i>&nbsp;(#NOM_SITE|couper{60})</a></div>]
+</BOUCLE_logo300>
+</B_logo300>
+[<div class="text-right"><a href="#URL_SITE" target="_blank" class="btn btn-sm btn-default"><i class="glyphicon glyphicon-link"></i>&nbsp;(#NOM_SITE|couper{60})</a></div>]
+[(#LOGO_ARTICLE_NORMAL|image_reduire{400,200}|inserer_attribut{class,img-polaroid margin}|inserer_attribut{style,'max-width:30%;float:right;height:auto;'})]
+<//B_logo300>
+<//B_logo>
+
+[(#MODELE{article_traductions})<br />]
+
+<B_reserve>
+<BOUCLE_reserve(ARTICLES){id_article}{titre_mot=reserve}>
+[(#SESSION{id_auteur}|oui)
+[<div class="margin clearfix lead justify">(#TEXTE)</div>]
+[<div class="text-right margin"><i class="glyphicon glyphicon-user"></i>&nbsp;(#LESAUTEURS)</div>]
+[<div class="text-justify margin padding">(#PS)</div>]
+[<div class="margin text-left muted">(#NOTES)</div>]
+]
+
+<!--login-->[(#SESSION{id_auteur}|non)
+<div class="margin"><p align="center"><h4 class="color text-center"><:login_first:></h4></p>
+<hr>
+<p align="center">
+<:titre_boite_protegee_oui:><br />
+<:info_acces_restreint:></p></div>
+<div class="clearfix"></div>
+<div class="margin">
+<div class="padding">
+<div class="small_margin padding border shadow">[<h3><:pas_inscrit:></h3>(#FORMULAIRE_INSCRIPTION)]</div></div>
+<div class="padding">
+<div class="small_margin padding border shadow">
+<p align="center"><h2 class="color text-center"><:connexion:></h2></p>
+[<h3><:deja_inscrit:></h3>(#LOGIN_PUBLIC{#SELF})]</div></div>
+</div>
+]<!--/_login-->
+
+</BOUCLE_reserve>
+</B_reserve>
+[<div class="margin clearfix lead justify">(#TEXTE)</div>]
+[<div class="text-right margin"><i class="glyphicon glyphicon-user"></i>&nbsp;(#LESAUTEURS)</div>]
+[<hr><div class="text-justify margin padding">(#PS)</div>]
+[<div class="margin text-left muted">(#NOTES)</div>]
+<//B_reserve>
+
+<!--galerie--><B_galerie_folio>
+<BOUCLE_galerie_folio(ARTICLES){id_article}{titre_mot=galerie}>
+</BOUCLE_galerie_folio>
+</B_galerie_folio>
+<!--reserve folio--><B_reserve_folio>
+<BOUCLE_reserve_folio(ARTICLES){id_article}{titre_mot=reserve}>
+[(#SESSION{id_auteur}|oui)<INCLURE{fond=parts/article_portfolio}{id_article}{env}{ajax}>]
+</BOUCLE_reserve_folio>
+</B_reserve_folio>
+<INCLURE{fond=parts/article_portfolio}{id_article}{env}{ajax}>
+<//B_reserve_folio><!--/_reserve folio-->
+<//B_galerie_folio><!--/_galerie-->
+
+[(#SESSION{id_auteur}|oui)
+[(#ACCEPTER_FORUM|=={non}|non)<div id="forum" class="border_top"><INCLURE{fond=comments}{id_article}{env}{ajax}></div>]
+[(#ACCEPTER_FORUM|=={non}|oui)<div id="forum" class="border_top"><strong><:comments:>&nbsp;:&nbsp;</strong><:forum_desactive:></div>]
+]
+[(#SESSION{id_auteur}|non)<div id="forum" class="margin padding border_top border_bottom">
+<p><INCLURE{fond=item/combien_forum}{id_article}{env}><br />
+<span class="font"><a href="#URL_PAGE{identification_login}" target="_top"><:forums_inscrits:></a></span></p></div>
+]
+
+
+</div><!-- /CONTENT -->
+<!-- A_SIDE --><div class="col-md-3">
+<INCLURE{fond=aside/article_aside}{id_article}{env}>
+</div><!-- /_A_SIDE -->
+</div>
+</BOUCLE_principale>

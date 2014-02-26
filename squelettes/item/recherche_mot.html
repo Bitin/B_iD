@@ -1,0 +1,14 @@
+#FILTRE{mini_html}
+[(#REM) Mots-cles trouves ]
+<B_mots>
+<div class="margin">
+#ANCRE_PAGINATION
+<div class="border_bottom"><span class="font"><b class="glyphicon glyphicon-search"></b>&nbsp; <:mots_clefs:></span>&nbsp;<span class="color">[(#GRAND_TOTAL)]</span></div>
+<ul class="list-unstyled">
+<BOUCLE_mots(MOTS) {recherche} {!par points} {pagination 5}>
+<li class="small_margin"><a href="#URL_MOT"><i class="glyphicon glyphicon-tag"></i>&nbsp; #TITRE</a></li>
+</BOUCLE_mots>
+</ul>
+[<p align="left" class="pagination btn btn-sm btn-default ajax">(#PAGINATION)</p>]
+</div>
+</B_mots>

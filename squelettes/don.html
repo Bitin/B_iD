@@ -1,0 +1,17 @@
+<B_principale><BOUCLE_principale(ARTICLES){page=don}>
+<!DOCTYPE html><html lang="en">
+<INCLURE{fond=head/page_head}{id_article}{env}>
+<body>
+<!-- NAVBAR -->
+<INCLURE{fond=navbar/navbar}{env}>
+<INCLURE{fond=top/article_top}{id_article}{env}>
+<!-- CONTENT
+================================================== -->
+<!-- container --><div class="container">
+<!-- CENTER --><INCLURE{fond=content/article_content}{id_article}{env}{ajax}>
+</div><!-- /.container -->
+<!-- FOOTER --><INCLURE{fond=footer}{env}>
+</body></html>
+</BOUCLE_principale>
+</B_principale>
+<//B_principale>

@@ -1,0 +1,12 @@
+<B_ref>
+[(#ANCRE_PAGINATION)]
+<ul class="list-unstyled">
+<BOUCLE_ref(SYNDIC_ARTICLES){id_rubrique ?}{branche ?}{id_syndic ?}{pagination 2}{!par date}>
+<li><blockquote>[<a href="#URL_ARTICLE" target="_blank"><i class="glyphicon glyphicon-share-alt"></i>&nbsp;(#TITRE|couper{120})</a>] &nbsp;
+[<small><cite title="[(#NOM_SITE)]">[ (#DATE|jour)/][(#DATE|mois)][/(#DATE|annee)]</cite> | (#DESCRIPTIF|couper{200})</small>]</blockquote></li>
+</BOUCLE_ref>
+</ul>
+[<div class="clearfix"></div>
+<p align="center" class="btn btn-small pagination ajax">(#PAGINATION)</p>]
+</B_ref>
+<//B_ref>

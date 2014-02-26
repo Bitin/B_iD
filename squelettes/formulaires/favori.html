@@ -1,0 +1,17 @@
+#FILTRE{mini_html}
+<div class="btn-group ajax">
+[(#ENV**{editable}|oui)
+	<form action="#ENV{action}" method="post" enctype="multipart/form-data" class="form-inline">
+		#ACTION_FORMULAIRE{#SELF}
+			[(#ENV{_deja_favori}|non)
+			<button type='submit' class="btn btn-xs btn-default" name="ajouter" value="<:mesfavoris:add_to|attribut_html:>" title="<:mesfavoris:add_to|attribut_html:>">
+				<span><i class="glyphicon glyphicon-floppy-disk"></i>&nbsp; <:a_lire|attribut_html:></span>
+			</button>
+			][(#ENV{_deja_favori}|oui)
+			<button type='submit' class="btn btn-xs btn-default" name="retirer" value="<:mesfavoris:remove_from|attribut_html:>" title="<:mesfavoris:remove_from|attribut_html:>">
+				<span><i class="glyphicon glyphicon-floppy-remove"></i>&nbsp; <:mesfavoris:remove|attribut_html:></span>
+			</button>
+			]
+	</form>
+]
+</div>

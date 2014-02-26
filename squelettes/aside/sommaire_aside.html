@@ -1,0 +1,25 @@
+#FILTRE{mini_html}
+
+<div class="col_gauche">
+
+[<div class="margin_top small_padding small_margin text-center">(#FORMULAIRE_RECHERCHE)</div>]
+
+<div class="margin_top text-center"><INCLURE{fond=parts/agenda}{env}{ajax}></div>
+
+<INCLURE{fond=parts/menu}{env}>
+
+<B_reserves_articles>
+<div class="margin_top border_top page_nav small_margin padding sidebar-nav text-center">
+<div class="text-center"><span class="border_bottom font"><i class="glyphicon glyphicon-lock"></i>&nbsp;<:espace_prive:></span></div>
+<BOUCLE_combien_rez(ARTICLES){titre_mot=reserve}{plat}></BOUCLE_combien_rez>
+<div class="margin_top "><strong><a href="#URL_PAGE{identification_login}" title="<:pas_inscrit:>" target="_top" class="small_margin small_padding">[<i class="glyphicon glyphicon-eye-close"></i>&nbsp;(#TOTAL_BOUCLE|singulier_ou_pluriel{info_1_article,info_nb_articles})]</span> <:reserves:></strong><br /><a href="#URL_PAGE{contact}" target="_top" title="Contact"><:sur_demande:></a></div><//B_combien_rez>
+</div>
+<BOUCLE_reserves_articles(ARTICLES){titre_mot=reserve}{0,1}>
+</BOUCLE_reserves_articles>
+</B_reserves_articles>
+<//B_reserves_articles>
+
+</div>
+
+<BOUCLE_facebook(MOTS){titre=rezosocio}{0,1}{technique=oui}>[<div class="text-center small_margin margin_top">(#TEXTE)</div>]</BOUCLE_facebook>
+

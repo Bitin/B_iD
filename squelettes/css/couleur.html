@@ -1,0 +1,139 @@
+#FILTRE{mini_html}
+<style type="text/css">
+<BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
+<BOUCLE_hier_couleur(HIERARCHIE){id_rubrique}>
+<BOUCLE_couleur_rubrique(RUBRIQUES){id_rubrique}{doublons gauche}>
+[(#SET{couleur,[(#ID_RUBRIQUE|pb_couleur_rubrique|sinon{[(#GET{couleur})]})]})]
+[(#SET{tresclair,[(#ID_RUBRIQUE|pb_couleur_rubrique|couleur_luminance{0.2})]})]
+[(#SET{clair,[(#ID_RUBRIQUE|pb_couleur_rubrique|couleur_luminance{0.4})]})]
+[(#SET{fonce,[(#ID_RUBRIQUE|pb_couleur_rubrique|couleur_luminance{0.6})]})]
+[(#SET{tresfonce,[(#ID_RUBRIQUE|pb_couleur_rubrique|couleur_luminance{0.8})]})]
+</BOUCLE_couleur_rubrique>
+</BOUCLE_hier_couleur>
+[(#SET{couleur,[(#ID_RUBRIQUE|pb_couleur_rubrique|sinon{[(#GET{couleur})]})]})]
+[(#SET{tresclair,[(#ID_RUBRIQUE|pb_couleur_rubrique|couleur_luminance{0.2})]})]
+[(#SET{clair,[(#ID_RUBRIQUE|pb_couleur_rubrique|couleur_luminance{0.4})]})]
+[(#SET{fonce,[(#ID_RUBRIQUE|pb_couleur_rubrique|couleur_luminance{0.6})]})]
+[(#SET{tresfonce,[(#ID_RUBRIQUE|pb_couleur_rubrique|couleur_luminance{0.8})]})]
+
+/*___IMPORTANTS__éléments à coloriser___ (si changements dans les fichiers css, mettre à jour ci-dessous)__*/
+
+/*COLOR*/
+.text-muted{color:[#(#GET{clair})]}
+.niveau1 a:hover,
+.nav-list a:hover, .navbar-inner,
+div.onglets_bloc h2.hover a, div.onglets_bloc h2.hover a,
+.une h1 a,
+a,.color, h1.color, h2.color, h3.color, h4.color, h5.color, h6.color, h1,h2,h3,h4,h5,h6,h1 a,h2 a,h3 a,h4 a,h5 a,h6 a
+{color: [#(#GET{tresfonce})];-webkit-transition-property: color;-webkit-transition-duration: 2s;-moz-transition-property: color;-moz-transition-duration: 2s;transition-property: color;transition-duration: 2s;text-decoration:none;}
+a:hover,.color:hover, h1.color:hover, h2.color:hover, h3.color:hover, h4.color:hover, h5.color:hover, h6.color:hover, h1:hover,h2:hover,h3:hover,h4:hover,h5:hover,h6:hover,h1 a:hover,h2 a:hover,h3 a:hover,h4 a:hover,h5 a:hover,h6 a:hover
+{color: [#(#GET{couleur})];-webkit-transition-property: color;-webkit-transition-duration: 2s;-moz-transition-property: color;-moz-transition-duration: 2s;transition-property: color;transition-duration: 2s;text-decoration:none;}
+
+/*BACKGROUND*/
+
+.carousel-indicators li {background-color:[#(#GET{tresclair});]}
+.carousel-indicators li:hover {background-color:[#(#GET{tresfonce});]}
+
+div#agenda div.fc-content .fc-event-skin, div#agenda div.fc-content .fc-event-inner .fc-event-skin, div#agenda div.fc-content .fc-event .fc-event-skin .fc-event-hori .fc-corner-left .fc-corner-right{border-color: background-color:[#(#GET{tresclair}) !important;]background-color: background-color:[#(#GET{couleur}) !important;]color: #fff;}
+
+.pagination a:hover,
+.background_color,
+.nav-list a:hover,
+.nav > li > a:hover,
+.nav > li > a:focus,
+.label_important, a.label.label-important, .label.label-important,
+.indicators_presentation .carousel-indicators .active,
+.carousel-indicators .active
+{color:#FFFFFF;background-color: [#(#GET{couleur});]}
+
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight{background-image:none;color:[#(#GET{tresfonce});];background-color: [#(#GET{tresclair});]border: 1px solid [#(#GET{clair});]}
+
+.presentation_logo{margin:0px;padding: 0px;background-color: [#(#GET{couleur});]}
+
+.nav-list>.active>a,.nav-list>.active>a:hover,.nav-list>.active>a:focus,
+.nav-pills>.active>a,.nav-pills>.active>a:hover,.nav-pills>.active>a:focus
+{background-color: [#(#GET{couleur});]}
+
+
+/*BORDERS*/
+hr.color{margin:5px;border:0;border-bottom:10px solid [#(#GET{couleur})];text-align: center;}
+.border_bottom{border-top: 0px;border-bottom:4px;border-left:0px;border-right:0px;border-bottom-style: solid;border-bottom-color:[#(#GET{couleur});]}
+.big_border_top, .navbar_presentation{border-top: 10px;border-bottom:0px;border-left:0px;border-right:0px;border-top-style: solid;border-top-color:[#(#GET{fonce});]}
+.border_top{border-top: 2px;border-bottom:0px;border-left:0px;border-right:0px;border-top-style: solid;border-top-color:[#(#GET{couleur});]}
+.masthead-nav > li > a:focus, .masthead-nav > li > a:hover {border-bottom-color: [#(#GET{tresfonce});];}
+.navbar_inverse{border:none;border-style: none;border-color:none;border-bottom:1px;border-bottom-style:inset;border-bottom-color:[#(#GET{fonce});]
+-o-border-radius:0px;-moz-border-radius:0px ;-webkit-border-radius:0px;border-radius: 0px;}
+/*FONDS*/
+
+/*.fond{margin-top:10px;margin-bottom:10px;background-color: [#(#GET{couleur});]}*/
+.fond_clair{margin-top:10px;margin-bottom:10px;background-color: [#(#GET{clair});]}
+.navbar-brand a:hover, .navbar-brand:hover{color:[#(#GET{clair});]}
+
+/* #tops, .carousel .item , .navbar_inverse,*/ .degrade_inverse{background: -webkit-gradient(linear, 0 0, 0 bottom, from([#(#GET{couleur})]), to([#(#GET{clair})]));
+background: -webkit-linear-gradient([#(#GET{couleur})], [#(#GET{clair})]);
+background: -moz-linear-gradient([#(#GET{couleur})], [#(#GET{clair})]);
+background: -ms-linear-gradient([#(#GET{couleur})], [#(#GET{clair})]);
+background: -o-linear-gradient([#(#GET{couleur})], [#(#GET{clair})]);
+background: linear-gradient([#(#GET{couleur})], [#(#GET{clair})]);
+-pie-background: linear-gradient([#(#GET{couleur})], [#(#GET{clair})]);}
+
+/*body, */.degrade_couleur{background: -webkit-gradient(linear, 0 0, 0 bottom, from([#(#GET{clair})]), to([#(#GET{couleur})]));
+background: -webkit-linear-gradient([#(#GET{clair})], [#(#GET{couleur})]);
+background: -moz-linear-gradient([#(#GET{clair})], [#(#GET{couleur})]);
+background: -ms-linear-gradient([#(#GET{clair})]F, [#(#GET{couleur})]);
+background: -o-linear-gradient([#(#GET{clair})], [#(#GET{couleur})]);
+background: linear-gradient([#(#GET{clair})], [#(#GET{couleur})]);
+-pie-background: linear-gradient([#(#GET{clair})], [#(#GET{couleur})]);}
+
+/* Couleurs Navbar, Drop-down & Sidebar a:hover */
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus, .dropdown-submenu:hover>a, .dropdown-submenu:focus>a {text-decoration:none;color:#ffffff;background-color:[#(#GET{couleur});]}
+
+.dropdown-menu>.active>a, .dropdown-menu>.active>a:hover, .dropdown-menu>.active>a:focus
+{text-decoration:none;color:#ffffff;background-color:[#(#GET{couleur});]}
+
+.navbar a, .nav > li > a{color:[#(#GET{tresfonce});]}
+.nav > li > a:hover, .nav > li > a:focus{color:[#(#GET{tresclair});]}
+.navbar .brand a:hover {color:[#(#GET{tresclair});]}
+.navbar-toggle .icon-bar{background-color:[#(#GET{tresfonce});]}
+
+
+/*ONGLETS*/
+div.onglets_bloc h2.onglets_titre, div.onglets_bloc h2.onglets_titre {background-color: [#(#GET{couleur})];}
+div.onglets_bloc h2.onglets_titre.selected, div.onglets_bloc h2.onglets_titre.selected, div.onglets_bloc h2.onglets_titre.selected a, div.onglets_bloc h2.onglets_titre.selected a {color: [#(#GET{couleur})];}
+div.onglets_bloc .onglets_contenu {border-top:1px solid [#(#GET{couleur})];}
+
+/*BOUTONS*/
+.btn-fonce {
+  background-image: -webkit-linear-gradient(top, [#(#GET{fonce})] 0%, [#(#GET{clair})] 100%);
+  background-image:         linear-gradient(to bottom, [#(#GET{fonce})] 0%, [#(#GET{clair})] 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='[#(#GET{fonce})]', endColorstr='[#(#GET{clair})]', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  background-repeat: repeat-x;
+  border-color: [#(#GET{clair})];
+}
+a.btn-fonce, a:visited.btn-fonce, a:focus.btn-fonce {color:[#(#GET{tresclair})];}
+.btn-fonce:hover, .btn-fonce:focus{color:[#(#GET{clair})];}
+
+.btn-fonce:hover {
+  background-image: -webkit-linear-gradient(top, [#(#GET{clair})] 0%, [#(#GET{fonce})] 100%);
+  background-image:         linear-gradient(to bottom, [#(#GET{clair})] 0%, [#(#GET{fonce})] 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='[#(#GET{clair})]', endColorstr='[#(#GET{fonce})]', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  background-repeat: repeat-x;
+  border-color: [#(#GET{clair})];
+}
+div#tops{color: [#(#GET{tresfonce})];}
+div#top h1{text-shadow: 0 1px 2px rgba(0, 0, 0, .6) !important; color:[#(#GET{tresfonce})] !important;}
+h1.tops, #tops a:hover{color:[#(#GET{tresfonce})] !important;}
+
+</BOUCLE_rubrique>
+
+/*CALENDAR*/
+#agenda .fc-header-center{text-align: center;}
+#agenda .fc-header-title h2{margin: 0 5px 0 5px;text-align: center;}
+.fc-header-title h2, h2.fc-header-title, #agenda h2{font-size: 20px;}
+.fc-button-today{display: none;visibility: hidden;}
+
+/*IMPORTANTS__REINITIALISER AVEC CETTE COULEUR*/
+div.onglets_bloc h2.onglets_titre a:hover{color:#000000;}
+</style>

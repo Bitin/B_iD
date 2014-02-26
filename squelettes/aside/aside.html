@@ -1,0 +1,14 @@
+#FILTRE{mini_html}
+
+<div class="col_gauche">
+
+[<div class="margin_top small_padding small_margin text-center">(#FORMULAIRE_RECHERCHE)</div>]
+
+<div class="margin_top text-center"><INCLURE{fond=parts/agenda}{env}{ajax}></div>
+
+<INCLURE{fond=parts/menu}{env}>
+
+</div>
+
+<BOUCLE_facebook(MOTS){titre=rezosocio}{0,1}{technique=oui}>[<div class="text-center small_margin margin_top">(#TEXTE)</div>]</BOUCLE_facebook>
+

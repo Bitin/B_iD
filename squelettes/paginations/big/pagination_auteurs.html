@@ -1,0 +1,9 @@
+<B_auteurs>
+<!-- Sites -->
+[(#ANCRE_PAGINATION)]
+<BOUCLE_auteurs(AUTEURS){id_mot ?}{pagination 20}>
+[<a href="#URL_AUTEUR" target="_top" class="btn btn-sm btn-default small_margin"><i class="glyphicon glyphicon-user"></i>&nbsp;(#NOM|couper{80})</a>]
+</BOUCLE_auteurs>
+[<div class="clearfix"></div>
+<p align="center" class="btn btn-small pagination ajax">(#PAGINATION)</p>]
+</B_auteurs><//B_auteurs>

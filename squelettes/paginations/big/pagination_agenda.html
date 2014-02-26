@@ -1,0 +1,9 @@
+<B_agenda><div class="small_margin">
+<h2><:agenda:></h2>[(#ANCRE_PAGINATION)]
+<dl>
+<BOUCLE_agenda(EVENEMENTS){age<=0}{pagination 6}{0,18}{par date}{statut=publie}>
+<div class="text-left"><strong><a href="#URL_EVENEMENT" target="_top">[(#TITRE|couper{120})]</a></strong>[ - (#DATE_DEBUT|Agenda_affdate_debut_fin{#DATE_FIN,#HORAIRE})] [ | <em>(#LIEU)</em>]</div>
+</BOUCLE_agenda>
+</dl>
+[<div class="pagination ajax">(#PAGINATION)</div>]
+</div></B_agenda>

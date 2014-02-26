@@ -1,0 +1,30 @@
+<div id="in_nav" role="navigation" class="border arrondi shadow">
+<ul class="nav">
+<li class="dropup text-center">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="glyphicon glyphicon-th-list"></b>&nbsp;<:navigation:></a>
+<ul class="dropdown-menu">
+<li><a href="#URL_SITE_SPIP" target="_top"><i class="glyphicon glyphicon-home"></i>&nbsp;#NOM_SITE_SPIP</a></li>
+[<li>(#MENU_LANG)</li>]
+<li><a href="#top" onclick='return focus_zone("#top")' target="_self" title="<:top:>"><i class="glyphicon glyphicon-hand-up"></i>&nbsp;<:top:></a></li>
+<li><a href="#contenu" onclick='return focus_zone("#contenu")'><i class="glyphicon glyphicon-file"></i>&nbsp;<:aller_au_contenu:></a></li>
+<li><a href="#navigation" target="_self" onclick='return focus_zone("#navigation")'><i class="glyphicon glyphicon-list"></i>&nbsp;<:navigation:></a></li>
+<li><a href="#menu" target="_self" onclick='return focus_zone("#menu")'><i class="glyphicon glyphicon-list-alt"></i>&nbsp;Menu</a></li>
+<li><a href="#URL_PAGE{recherche}" target="_top"><i class="glyphicon glyphicon-search"></i>&nbsp;<:info_rechercher:></a></li>
+<li><a href="#URL_PAGE{plan}" target="_top"><i class="glyphicon glyphicon-globe"></i>&nbsp;<:plan_site:></a></li>
+<li><a href="#URL_PAGE{contact}" target="_top"><i class="glyphicon glyphicon-envelope"></i>&nbsp;Contact</a></li>
+</ul>
+
+<li class="dropup">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">[(#SESSION{id_auteur}|oui)][<b class="glyphicon glyphicon-user"></b>&nbsp;(#SESSION{nom})]
+  [(#SESSION{id_auteur}|non)<b class="glyphicon glyphicon-log-in"></b>&nbsp;<:connexion:>]</a>
+<ul class="dropdown-menu">
+<li><a href="#URL_PAGE{mapage}" target="_top">[(#SESSION{id_auteur}|oui)][<:bonjour:> (#SESSION{nom}) ;-)]</a></li>
+<li><a href="#URL_SITE_SPIP" target="_top"><i class="glyphicon glyphicon-home"></i>&nbsp;#NOM_SITE_SPIP</a></li>
+<li><a href="#URL_PAGE{mapage}" target="_top"><i class="glyphicon glyphicon-star-empty"></i>&nbsp;<:mon_my:></a></li>
+<li class="divider"></li>
+[(#SESSION{statut}|=={0minirezo}|oui)<li><a href="[(#SELF|parametre_url{var_mode,#ENV{calcul}})]" id="var_mode"><i class="glyphicon glyphicon-refresh"></i>&nbsp;<:admin_recalculer:>[(#ENV{use_cache})]</a></li>]
+[(#SESSION{id_auteur}|oui)<li><a href="[(#URL_LOGOUT)]" target="_self" rel="nofollow"><i class="glyphicon glyphicon-log-out"></i>&nbsp;<:deconnexion:></a></li>]
+[(#SESSION{id_auteur}|non)<li><a href="[(#URL_PAGE{identification_login})]" target="_self" rel="nofollow"><i class="glyphicon glyphicon-log-in"></i>&nbsp;<:connexion:></a></li>]
+<li><a href="#URL_SITE_SPIP/ecrire" target="_top"><i class="glyphicon glyphicon-pencil"></i>&nbsp;Admin</a></li></ul>
+</li></ul>
+</div>

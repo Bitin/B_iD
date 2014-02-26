@@ -1,0 +1,27 @@
+#FILTRE{mini_html}
+<BOUCLE_principale(ARTICLES){id_article}>
+<!-- Carousel -  carousel_portail.html -->
+<div id="galerie" class="une slide text-center" style="min-height:200px;">
+
+  <!-- Carousel items -->
+  <div class="carousel-inner margin">
+
+<BOUCLE_documents_portfolio_1(DOCUMENTS) {id_article} {mode=document}{extension IN png,jpg,gif} {par num titre, date}{0,1}>
+    <div class="active item overflow" data-pause="hover">
+    <INCLURE{fond=parts/item_galerie}{id_document}{env}>
+    </div>
+</BOUCLE_documents_portfolio_1>
+
+<BOUCLE_documents_portfolio_suite(DOCUMENTS) {id_article} {mode=document}{extension IN png,jpg,gif} {par num titre, date}{1,15}>
+    <div class="item overflow" data-pause="hover">
+    <INCLURE{fond=parts/item_galerie}{id_document}{env}>
+    </div>
+</BOUCLE_documents_portfolio_suite>
+
+</div></div>
+<div class="clearfix magin text-center">
+<a href="#galerie" data-slide="prev" class="btn btn-sm btn-default"><</a>
+<a href="#galerie" data-slide="next" class="btn btn-sm btn-default">></a>
+</div>
+
+</BOUCLE_principale>

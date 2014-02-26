@@ -1,0 +1,32 @@
+    <!-- Carousel
+    ================================================== -->
+    <div id="presentation" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+      <BOUCLE_indicators1(ARTICLES){titre_mot=focus}{!par date}{0,1}{doublons indicators}>
+        <li data-target="#presentation" data-slide-to="0" class="active"></li>
+      </BOUCLE_indicators1>
+      <BOUCLE_indicators2(ARTICLES){titre_mot=focus}{!par date}{0,5}{doublons indicators}>
+        <li class="" data-target="#presentation" data-slide-to="#COMPTEUR_BOUCLE"></li>
+      </BOUCLE_indicators2>
+      </ol>
+      <div class="carousel-inner">
+        <BOUCLE_carousel1(ARTICLES){titre_mot=focus}{!par date}{0,1}{doublons carousel}>
+        <div class="item fond1 active">
+          
+          <div class="container">
+              <INCLURE{fond=parts/carousel-caption}{id_article}{env}>
+          </div>
+        </div>
+        </BOUCLE_carousel1>
+        <BOUCLE_carousel2(ARTICLES){titre_mot=focus}{!par date}{0,5}{doublons carousel}>
+        [<div class="(#COMPTEUR_BOUCLE|alterner{item fond2,item fond1})">]
+          <div class="container">
+              <INCLURE{fond=parts/carousel-caption}{id_article}{env}>
+          </div>
+        </div>
+        </BOUCLE_carousel2>
+      </div>
+      <a class="left carousel-control" href="#presentation" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a class="right carousel-control" href="#presentation" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div><!-- /.carousel -->

@@ -1,0 +1,131 @@
+#FILTRE{mini_html}
+<BOUCLE_principale(AUTEURS){id_auteur}>
+<!DOCTYPE html><html lang="en">
+<head>
+<!-- REGLES -->
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<INCLURE{fond=icon}>
+<!-- INFOS -->
+<title>[(#NOM|textebrut)] [ @ (#NOM_SITE_SPIP|textebrut)]</title>
+<META NAME="generator" CONTENT="SPIP[ (#SPIP_VERSION)]" />
+<META NAME="description" content="[(#NOM|textebrut)] [ @ (#NOM_SITE_SPIP|textebrut)] [(#BIO|couper{300}|textebrut)]">
+<META NAME="author" content="[(#NOM|textebrut)][ (#NOM_SITE_SPIP|textebrut)]">
+<META NAME="copyright" CONTENT="©">
+<META NAME="identifier-url" CONTENT="[(#URL_AUTEUR|liens_absolus)]">
+<META NAME="organization" CONTENT="[(#NOM_SITE_SPIP|textebrut)]">
+<META NAME="Rating" CONTENT="general">
+<META http-equiv="Content-Language" CONTENT="fr">
+<META NAME="expires" CONTENT="never">
+<META NAME="Distribution" CONTENT="Global">
+<META NAME="Audience" CONTENT="general">
+<!-- RSS -->
+[<link rel="alternate" type="application/rss+xml" title="RSS" href="(#URL_PAGE{backend})" />]
+[<link rel="alternate" type="application/rss+xml" title="RSS <:breves:>" href="(#URL_PAGE{backend-breves})" />]
+[<link rel="alternate" type="application/rss+xml" title="RSS <:agenda:>" href="(#URL_PAGE{rss_agenda})" />]
+<!-- Bootstrap core CSS -->
+#INSERT_HEAD_CSS
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+<!-- Custom styles -->
+<link href="#CHEMIN{css/carousel.css}" rel="stylesheet">
+<INCLURE{fond=css/style}>
+<BOUCLE_couleur(RUBRIQUES){titre_mot=couleur}{par hasard}{0,1}>
+<INCLURE{fond=css/couleur,id_rubrique=#ID_RUBRIQUE,env,ajax}>
+</BOUCLE_couleur>
+#INSERT_HEAD
+<!-- SCRIPTS -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<INCLURE{fond=js/javascript}>
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+<!-- NAVBAR -->
+<INCLURE{fond=navbar/navbar,env}>
+<!-- TOP -->
+<div id="tops">
+<div class="container text-left">
+<div class="row">
+
+<div class="col-md-7 col-md-offset-1">
+<div class="lead text-center"><h1><i class="glyphicon glyphicon-user"></i>&nbsp;[&nbsp;(#NOM)]</h1></div>
+</div>
+
+<div class="col-md-4">
+<div id="socialtags" class="text-center"></div>
+<div class="text-center"><ul class="list-inline">
+<li>[<div class="small_margin">(#FORMULAIRE_JAIME)</div>]</li><li>[<div class="small_margin">(#FORMULAIRE_FAVORI)</div>]</li>
+</ul></div>
+</div>
+
+</div></div></div>
+<!-- CONTENT
+================================================== -->
+<!-- container --><div class="container">
+<!-- contenu --><div id="contenu" class="row">
+<div class="col-md-8 col-md-offset-1">
+<div class="padding">
+
+
+<!-- auteur_contact --><B_contact>
+<BOUCLE_contact(AUTEURS){id_auteur}{titre_mot=contact}>
+[<hr>
+[(#LOGO_AUTEUR|image_reduire{180,100}|inserer_attribut{style,'max-width:33%;'}|inserer_attribut{class,text-center small_margin pull-right})]
+<div class="margin">(#BIO)</div>]
+[<div><a href="#URL_SITE" target="_blank"><i class="glyphicon glyphicon-share"></i>&nbsp; (#NOM_SITE|couper{80})</a></div>]
+[<div class="margin padding text-right muted">(#NOTES)</div>]
+<div class="clearfix"></div>
+<hr>
+[<div class="text-left padding list-unstyled">(#FORMULAIRE_CONTACT|sinon{#FORMULAIRE_ECRIRE_AUTEUR})</div>]
+</BOUCLE_contact>
+</B_contact>
+<!-- //_auteur_contact -->
+
+<!-- auteur_bloggeur -->
+[<hr>[(#LOGO_AUTEUR|image_reduire{180,100}|inserer_attribut{style,'max-width:33%;'}|inserer_attribut{class,text-center small_margin pull-right})]
+            <div class="small_padding small_margin ecriture">(#BIO|couper{200})</div>]
+            [<div class="clearfix"></div>#BLOC_TITRE<:en_savoir_plus:>
+            #BLOC_DEBUT
+            <div class="margin">(#BIO)</div>
+            [<div><a href="#URL_SITE" target="_blank"><i class="glyphicon glyphicon-share"></i>&nbsp; (#NOM_SITE|couper{80})</a></div>]
+            [<div class="margin padding text-right muted">(#NOTES)</div>]
+            #BLOC_FIN]
+            <!-- bouton collapsable _contact --><div class="clearfix"></div><button class="btn btn-sm btn-danger" data-toggle="collapse" data-parent="#collapseContact" href="#collapseContact"><b class="glyphicon glyphicon-envelope"></b>&nbsp;E-mail</button>
+<!-- div collapsable _contact --><div id="collapseContact" class="accordion-body collapse">
+<div class="accordion-inner padding blanc_80">
+[<div class="text-left padding unstyled">(#FORMULAIRE_CONTACT|sinon{#FORMULAIRE_ECRIRE_AUTEUR})</div>]
+<div class="modal-footer">
+<button class="btn btn-xs" data-toggle="collapse" data-parent="#collapseContact" href="#collapseContact" aria-hidden="true" rel="nofollow"><i class="glyphicon glyphicon-remove"></i>&nbsp;<:fermer:></button>
+</div></div>
+</div><!-- /_div collapsable _contact -->
+
+<BOUCLE_tag(MOTS){id_auteur}{0,1}>
+<hr>
+<div class="small_margin margin_top"><span class="border_bottom font"><i class="glyphicon glyphicon-tags"></i> &nbsp;<:mots_clefs:></span></div>
+<!-- breves --><div class="margin"><INCLURE{fond=paginations/big/pagination_mots,id_auteur,env,ajax}></div><!-- /_breves -->
+</BOUCLE_tag>
+
+<BOUCLE_art(ARTICLES){id_auteur}{0,1}>
+<hr>
+<div class="small_margin margin_top"><span class="border_bottom font"><i class="glyphicon glyphicon-file"></i> &nbsp;<:articles:></span></div>
+<!-- articles --><div class="margin"><INCLURE{fond=paginations/small/pagination_articles,id_auteur,env,ajax}></div><!-- /_articles -->
+</BOUCLE_art>
+
+<!-- //_auteur_bloggeur -->
+<//B_contact>
+</div>
+</div>
+
+<!-- A_SIDE --><div class="col-md-3">
+<INCLURE{fond=aside/aside,env}>
+</div><!-- /_A_SIDE -->
+</div><!-- /.contenu -->
+</div><!-- /.container -->
+<!-- FOOTER --><INCLURE{fond=footer,env}>
+</body></html>
+</BOUCLE_principale>

@@ -1,0 +1,9 @@
+#FILTRE{mini_html}
+<B_articles>
+[(#ANCRE_PAGINATION)]
+<BOUCLE_articles(ARTICLES){id_mot ?}{id_rubrique ?}{id_auteur ?}{branche ?}{pagination 2}{!par date}>
+[(#INCLURE{fond=parts/article_small, id_article, env})]
+</BOUCLE_articles>
+[<div class="clearfix"></div>
+<p align="center" class="btn btn-small pagination ajax">(#PAGINATION)</p>]</B_articles>
+<//B_articles>

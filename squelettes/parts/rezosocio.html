@@ -1,0 +1,6 @@
+<div>
+<a href="#URL_PAGE{backend}" class="rezosocio" target="_blank" title="RSS" rel="nofollow"><img src="#CHEMIN{img/reseaux_sociaux/rss-2.png}" alt="RSS"></a> 
+<BOUCLE_rezosocio(SITES){logo}{titre_mot=rezosocio}{0,4}{par hasard}>
+<a href="#URL_SITE" target="_blank" rel="nofollow" title="#NOM_SITE" class="rezosocio" rel="nofollow">[(#LOGO_SITE|image_reduire{20,20}|inserer_attribut{alt,#NOM_SITE})]</a>
+</BOUCLE_rezosocio>
+</div>

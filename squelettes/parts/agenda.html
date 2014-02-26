@@ -1,0 +1,24 @@
+<div id="agenda">
+<!--###Agenda-->
+<div class="btn-group"><a class="btn btn-lg btn-fonce" data-toggle="collapse" data-parent="#agenda" href="#bloc_agenda"><i class="glyphicon glyphicon-time"></i>&nbsp;<:mon_agenda:></a></div>
+<!-- div agenda -->
+<div id="bloc_agenda" class="accordion-body collapse">
+<div class="accordion-inner small_padding">
+<INCLURE{fond=paginations/small/pagination_agenda,date,env,ajax}>
+[(#CALENDRIER_MINI{#ENV{date},
+date,
+#URL_PAGE{jour},
+#URL_PAGE{agenda.json}})]
+<div>
+</div><!-- div agenda -->
+<div class="modal-footer">
+<button class="btn btn-sm btn-default" data-toggle="collapse" data-parent="#agenda" href="#bloc_agenda" aria-hidden="true" rel="nofollow"><i class="glyphicon glyphicon-remove-circle"></i>&nbsp;<:fermer:>&nbsp;<:agenda:></button>
+</div></div>
+</div>
+<!--/_###Agenda-->
+<B_agenda>
+<BOUCLE_agenda(EVENEMENTS){age<=0}{0,1}{par date}{statut=publie}>
+<div class="text-left margin_top margin">
+<strong><a href="#URL_EVENEMENT" target="_top">[(#TITRE|couper{120})]</a></strong>[ - (#DATE_DEBUT|Agenda_affdate_debut_fin{#DATE_FIN,#HORAIRE})] [ | <em>(#LIEU)</em>]</div>
+</BOUCLE_agenda>
+</div>

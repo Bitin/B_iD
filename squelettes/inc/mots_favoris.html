@@ -1,0 +1,14 @@
+#FILTRE{mini_html}
+<BOUCLE_principale(AUTEURS){id_auteur=#SESSION{id_auteur}}{tout}>
+<div class="margin"><B_mots>
+[(#ANCRE_PAGINATION)]
+<BOUCLE_mots(NOTATIONS){!par note}{objet=mot}{pagination 10}{!par maj}{id_auteur=#ENV{id_auteur,#SESSION{id_auteur}}}{0,30}>
+[(#INCLURE{fond=modeles/inc-notation-preferee-#OBJET}{id_objet})]
+</BOUCLE_mots>
+[<div class="clearfix"></div>
+<p align="center" class="btn btn-sm btn-default pagination ajax">(#PAGINATION)</p>]
+</B_mots>
+<:my_ajouter_tag:>
+<//B_mots>
+</div>
+</BOUCLE_principale>

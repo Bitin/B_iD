@@ -1,0 +1,27 @@
+##########
+Creative Commons
+Attribution-Share Alike 3.0 Unported (CC BY-SA 3.0)
+##########
+##########
+##########
+CC Bitin.fr
+www.bitin.fr
+__________
+__________
+__________
+Squelette B_iD
+__________
+Les droits de reproduction et de diffusion du squelette B_iD sont autorisés selon la Licence Attribution-Share Alike 3.0 Unported (CC BY-SA 3.0). Vous êtes invités à le copier et le reproduire librement si vous en mentionnez l'auteur - Bitin.fr - et la source - www.bitin.fr - et si vous le partagez dans les mêmes conditions, détaillées ici: http://creativecommons.org/licenses/by-nc-sa/3.0/fr/.
+__________
+__________
+__________
+Spip
+__________
+Spip et tous les plugins nécessaires au fonctionnement de B_iD sont distribués sous licence GNU/GPL (Licence Publique Générale).
+__________
+__________
+__________
+Boostrap
+__________
+Boostrap est distribué sous licence MIT.
+Informations: https://github.com/twbs/bootstrap/blob/master/LICENSE

@@ -1,0 +1,54 @@
+<BOUCLE_mots(MOTS){id_mot}>
+<div>
+
+<BOUCLE_combien_synd(SITES){id_mot}{!titre_mot=mediarezo}{plat}></BOUCLE_combien_synd>[(#SET{sites,[(#TOTAL_BOUCLE)]})]<//B_combien_synd>
+<BOUCLE_combien_art(ARTICLES){id_mot}{plat}></BOUCLE_combien_art>[(#SET{art,[(#TOTAL_BOUCLE)]})]<//B_combien_art>
+<BOUCLE_combien_rub(RUBRIQUES){id_mot}{plat}></BOUCLE_combien_rub>[(#SET{rub,[(#TOTAL_BOUCLE)]})]<//B_combien_rub>
+<BOUCLE_combien_bref(BREVES){id_mot}{plat}></BOUCLE_combien_bref>[(#SET{bref,[(#TOTAL_BOUCLE)]})]<//B_combien_bref>
+<BOUCLE_combien_aut(AUTEURS){id_mot}{plat}></BOUCLE_combien_aut>[(#SET{aut,[(#TOTAL_BOUCLE)]})]<//B_combien_aut>
+
+<!-- si articles & sites -->
+<B_sitesart>
+<BOUCLE_sitesart(SITES){id_mot}{0,1}{si #GET{sites}|>={1}}{si #GET{art}|>={1}}>
+[(#ONGLETS_DEBUT{<:articles:>})]
+<!-- articles --><div class="margin"><INCLURE{fond=paginations/small/pagination_articles,id_mot,env,ajax}></div><!-- /_articles -->
+</BOUCLE_sitesart>
+[(#ONGLETS_TITRE{<:sites_web:>})]
+<!-- sites --><div class="margin"><INCLURE{fond=paginations/big/pagination_sites,id_mot,env,ajax}></div><!-- /_sites -->
+[<br />(#ONGLETS_FIN)]
+</B_sitesart>
+<!-- //__si articles & sites -->
+
+<!-- si pas articles & sites -->
+<BOUCLE_artg(ARTICLES){id_mot}{0,1}{si #GET{art}|>={1}}>
+<hr>
+<div class="small_margin margin_top"><span class="border_bottom font"><i class="glyphicon glyphicon-file"></i> &nbsp;<:articles:></span></div>
+<!-- articles --><div class="margin"><INCLURE{fond=paginations/small/pagination_articles,id_mot,env,ajax}></div><!-- /_articles -->
+</BOUCLE_artg>
+<BOUCLE_siteg(SITES){id_mot}{0,1}{si #GET{sites}|>={1}}>
+<hr>
+<div class="small_margin margin_top"><span class="border_bottom font"><i class="glyphicon glyphicon-link"></i> &nbsp;<:sites_web:></span></div>
+<!-- sites --><div class="margin"><INCLURE{fond=paginations/big/pagination_sites,id_mot,env,ajax}></div><!-- /_sites --></BOUCLE_siteg>
+<//B_sitesart>
+<!-- //__si pas articles & sites -->
+
+<BOUCLE_rubrg(RUBRIQUES){0,1}{id_mot}{si #GET{rub}|>={1}}>
+<hr>
+<div class="small_margin margin_top"><span class="border_bottom font"><i class="glyphicon glyphicon-folder-close"></i> &nbsp;<:rubriques:></span></div>
+<!-- rubriques --><div class="margin"><INCLURE{fond=paginations/big/pagination_rubriques,id_mot,env,ajax}></div><!-- /_rubriques -->
+</BOUCLE_rubrg>
+
+<BOUCLE_brefg(BREVES){0,1}{id_mot}{si #GET{bref}|>={1}}>
+<hr>
+<div class="small_margin margin_top"><span class="border_bottom font"><i class="glyphicon glyphicon-ok"></i> &nbsp;<:breves:></span></div>
+<!-- breves --><div class="margin"><INCLURE{fond=paginations/small/pagination_breves,id_mot,env,ajax}></div><!-- /_breves -->
+</BOUCLE_brefg>
+
+<BOUCLE_autg(AUTEURS){0,1}{id_mot}{si #GET{aut}|>={1}}>
+<hr>
+<div class="small_margin margin_top"><span class="border_bottom font"><i class="glyphicon glyphicon-user"></i> &nbsp;<:auteurs:></span></div>
+<!-- breves --><div class="margin"><INCLURE{fond=paginations/big/pagination_auteurs,id_mot,env,ajax}></div><!-- /_breves -->
+</BOUCLE_autg>
+
+</div>
+</BOUCLE_mots>

@@ -1,0 +1,9 @@
+<B_rubriques>
+<!-- Sites -->
+[(#ANCRE_PAGINATION)]
+<BOUCLE_rubriques(RUBRIQUES){id_mot ?}{id_groupe ?}{branche ?}{pagination 20}>
+[<a href="#URL_RUBRIQUE" target="_top" class="btn btn-sm btn-default small_margin"><i class="glyphicon glyphicon-folder-open"></i>&nbsp; (#TITRE|couper{60})</a>]
+</BOUCLE_rubriques>
+[<div class="clearfix"></div>
+<p align="center" class="btn btn-small pagination ajax">(#PAGINATION)</p>]
+</B_rubriques><//B_rubriques>
